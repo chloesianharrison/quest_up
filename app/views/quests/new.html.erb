@@ -1,0 +1,11 @@
+<h1>Add a quest</h1>
+
+<%= simple_form_for(@quest) do |f| %>
+<%= f.input :name %>
+<%= f.input :notes %>
+<%= f.input :due_date %>
+<%= f.input :fun_rating %>
+<%= f.input :difficulty_rating %>
+<%= f.input :consequence_level %>
+<%= f.submit %>
+<% end %>
