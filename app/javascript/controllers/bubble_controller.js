@@ -6,7 +6,8 @@ export default class extends Controller {
   }
 }
 
-const xpCounter= 0
+let xpCount = 0;
+const counter = document.querySelector("#xpCounter");
 const bubbles = document.querySelectorAll('.bubble');
 const poppedClass = 'bubble--popped';
 
@@ -25,7 +26,11 @@ const resetBubble = (bubble) => {
 bubbles.forEach(bubble => {
    bubble.addEventListener('click', (e) => {
       popBubble(e, bubble);
-      xpCounter += 1;
+      xpCount += 1;
+      counter.innerText = `xp: ${xpCount}`;
+      if (xpCount === 10) {
+        window.location.href = "/quests";
+      }
    });
 
    bubble.addEventListener('animationend', () => {
