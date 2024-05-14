@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Rewards</h1>
+
+  <div class="card-product-reward">
+    <% @rewards.each do |reward| %>
+      <p><%= reward.name %>
+      <%= reward.xp %>
+      <%= reward.details %>
+      <%= reward.completed%><i class="fa-regular fa-star"></i></p>
+    <% end %>
+  </div>
+</div>
