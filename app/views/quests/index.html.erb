@@ -1,0 +1,10 @@
+
+<div class="container">
+<h1>Quests</h1>
+
+
+<% @quests.each do |quest| %>
+<h2><%= quest.name %></h2>
+<p><%= quest.xp %></p>
+<% end %>
+</div>

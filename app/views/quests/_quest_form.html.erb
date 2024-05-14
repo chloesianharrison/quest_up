@@ -1,0 +1,25 @@
+<script>
+function updateFun(val) {
+          document.getElementById('funInput').value=val;
+        }
+function updateDifficulty(val) {
+          document.getElementById('difficultyInput').value=val;
+        }
+function updateConsequence(val) {
+          document.getElementById('consequenceInput').value=val;
+        }
+</script>
+
+
+<%= simple_form_for(quest) do |f| %>
+<%= f.input :name %>
+<%= f.input :notes %>
+<%= f.input :due_date %>
+<%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", oninput:"updateFun(this.value)"} %>
+  <input type="text" id="funInput" value="">
+<%= f.input :difficulty_rating, as: :range, input_html:{ min:"0", max:"10", oninput:"updateDifficulty(this.value)"}  %>
+  <input type="text" id="difficultyInput" value="">
+<%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", oninput:"updateConsequence(this.value)"}  %>
+  <input type="text" id="consequenceInput" value="">
+<%= f.submit %>
+<% end %>
