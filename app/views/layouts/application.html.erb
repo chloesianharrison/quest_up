@@ -10,8 +10,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <%# <body><%= render "shared/navbar" %>
-<%# <%= render "shared/flashes" %>
+<% unless params[:controller] == "pages" then %>
+  <body><%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
+  <% end %>
 
     <%= yield %>
   </body>
