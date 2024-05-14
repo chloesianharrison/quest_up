@@ -1,7 +1,7 @@
 <div class="container">
-<h1>Create a reward</h1>
+<h1>Edit a reward</h1>
 
-<div><%= simple_form_for(@reward) do |f| %>
+  <%= simple_form_for(@reward) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
@@ -9,5 +9,7 @@
   <%= f.input :xp, label: "XP required:" %>
   <%= f.input :details, label: "Details" %>
 
-  <%= f.submit "Create"%>
+  <%= f.submit "Save"%>
 <% end %>
+
+</div>
