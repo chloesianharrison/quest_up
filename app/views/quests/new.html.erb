@@ -1,11 +1,10 @@
+
+
+<div class="container">
 <h1>Add a quest</h1>
 
-<%= simple_form_for(@quest) do |f| %>
-<%= f.input :name %>
-<%= f.input :notes %>
-<%= f.input :due_date %>
-<%= f.input :fun_rating %>
-<%= f.input :difficulty_rating %>
-<%= f.input :consequence_level %>
-<%= f.submit %>
-<% end %>
+<%= render "quest_form", quest: @quest %>
+
+
+</div>
+<%# <%= f.input :data, as: :range, input_html:{ min:"0", max:"45", oninput:"updateTextInput(this.value)"}%>

@@ -1,6 +1,6 @@
 class QuestsController < ApplicationController
   def index
-    @quests = Quest.where(Quest[:user] == current_user[:id])
+    @quests = Quest.where(user_id: current_user[:id])
   end
 
   def new
@@ -10,11 +10,24 @@ class QuestsController < ApplicationController
   def create
     @quest = Quest.new(quest_params)
     @quest.user = current_user
-    quest.xp = ((@quest.fun_rating + @quest.difficulty_rating + @quest.consequence_level) / 3) * 10.floor
+    @quest.xp = ((@quest.fun_rating + @quest.difficulty_rating + @quest.consequence_level) / 3) * 10.floor
     if @quest.save
       redirect_to quests_path
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @quest = Quest.find(params[:id])
+  end
+
+  def update
+    @quest = Quest.find(params[:id])
+    if @quest.update(quest_params)
+      redirect_to quests_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
