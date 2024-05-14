@@ -47,11 +47,10 @@ $bubble-height: 98px;
    }
 }
 
-body {
+.bodygame {
    // TODO: Get bubble colours based on background colour variable
-   background: #5cc;
-   font-family: 'Just Me Again Down Here', sans-serif;
-   color: white;
+   background-color: rgb(250, 246, 208);
+   color: lightgrey;
    font-size: 2rem;
    -webkit-font-smoothing: antialiased;
 }
@@ -59,6 +58,9 @@ body {
 .message {
    text-align: center;
    line-height: 1;
+   font-family: 'Dancing Script';font-size: 30px;
+   margin-top: 40px;
+
 }
 
 .bubble-machine {
