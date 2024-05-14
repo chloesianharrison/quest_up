@@ -15,9 +15,28 @@ class RewardsController < ApplicationController
     if @reward.save
       redirect_to rewards_path(@reward)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
+
+  def edit
+    @reward = Reward.find(params[:id])
+  end
+
+  def update
+    @reward = Reward.find(params[:id])
+    if @reward.update(reward_params)
+      redirect_to rewards_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  # def destroy
+  #   @reward = Reward.find(params[:id])
+  #   @reward.destroy
+  #   redirect_to rewards_path, status: :see_other
+  # end
 
   private
 
