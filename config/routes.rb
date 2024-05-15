@@ -12,4 +12,5 @@ Rails.application.routes.draw do
 
   resources :rewards, only: [:index, :new, :create, :edit, :update]
   resources :quests, only: [:index, :new, :create, :edit, :update]
+  get "bubble", to: "pages#bubble"
 end

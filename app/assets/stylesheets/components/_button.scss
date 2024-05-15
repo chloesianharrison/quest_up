@@ -22,3 +22,18 @@
   border-radius: 20px;
   text-decoration: none;
 }
+
+.home-btn{
+  bottom: 0;
+  position: absolute;
+  margin: 15px;
+  font-family: $headers-font;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  color: black;
+  background-color: $orange;
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+}

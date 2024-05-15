@@ -9,10 +9,12 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-    <body>
       <% unless params[:controller] == "pages" then %>
+        <body>
         <%= render "shared/navbar" %>
         <%= render "shared/flashes" %>
+      <% else %>
+        <body id="removescrollbar">
       <% end %>
 
       <%= yield %>
