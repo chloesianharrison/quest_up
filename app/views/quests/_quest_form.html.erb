@@ -6,17 +6,17 @@
 <%= f.input :name %>
 <%= f.input :notes %>
 <%= f.input :due_date %>
-<div data-controller="slider" class="slider-container d-flex">
-<%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay", 'data-slider-label-value'=> "Fun rating:" } %>
+<div data-controller="slider" class="slider-container", data-slider-label-value="Fun Rating:" >
+<%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"} %>
    <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
 </div>
-<div data-controller="slider" class="slider-container">
-<%= f.input :difficulty_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }  %>
-   <p class="slider-display m-3" data-slider-target="sliderDisplay"></p>
+<div data-controller="slider" class="slider-container" data-slider-label-value="Difficulty Rating:">
+<%= f.input :difficulty_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
+   <%# <p class="slider-display m-3" data-slider-target="sliderDisplay"></p> %>
 </div>
-<div data-controller="slider" class="slider-container">
-<%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" }}  %>
-   <p class="slider-display" data-slider-target="sliderDisplay"></p>
+<div data-controller="slider" class="slider-container" data-slider-label-value="Consequence Rating:">
+<%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" }}, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
+   <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
 </div>
 <%= f.submit %>
 <% end %>

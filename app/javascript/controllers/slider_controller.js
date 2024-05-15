@@ -7,19 +7,11 @@ export default class extends Controller {
     label: String
   }
 
-  // initialize() {
-  //   let rating = this.sliderValueTarget.value
-  //   this.sliderDisplayTarget.innerHTML += ` ${rating}`;
-  // }
-
   connect() {
   }
 
   handleSlider() {
-    console.log(this.labelValue)
     let rating = this.sliderValueTarget.value
-    console.log(rating)
     this.sliderDisplayTarget.innerHTML = `${this.labelValue} ${rating}`;
-    // this.sliderDisplayTarget.InnerHTML = ` ${this.sliderValueTarget.value}`;
     }
   }
