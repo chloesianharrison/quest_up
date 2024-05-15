@@ -32,11 +32,11 @@ class RewardsController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @reward = Reward.find(params[:id])
-  #   @reward.destroy
-  #   redirect_to rewards_path, status: :see_other
-  # end
+  def destroy
+    @reward = Reward.find(params[:id])
+    Reward.destroy(params[:id])
+    redirect_to rewards_path, status: :see_other
+  end
 
   private
 
