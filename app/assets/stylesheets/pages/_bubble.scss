@@ -49,8 +49,7 @@ $bubble-height: 98px;
 
 .bodygame {
    // TODO: Get bubble colours based on background colour variable
-   background-color: rgb(250, 246, 208);
-   color: lightgrey;
+   background-color: rgba(254, 250, 218, 0.4);
    font-size: 2rem;
    -webkit-font-smoothing: antialiased;
 }
@@ -58,10 +57,35 @@ $bubble-height: 98px;
 .message {
    text-align: center;
    line-height: 1;
-   font-family: 'Dancing Script';font-size: 30px;
+   font-family: "Kavivanar", cursive;
+   font-weight: 400;
+   font-style: normal;
    margin-top: 40px;
-
+   color: rgb(114, 153, 96);
 }
+#skipbutton{
+  font-family: "Kavivanar", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  bottom: 0;
+  position: absolute;
+  color: rgb(237, 148, 85);
+  right: 3px;
+}
+
+#xpCounter{
+  font-family: "Kavivanar", cursive;
+  font-weight: 400;
+  font-size: large;
+  font-style: normal;
+  left: 9px;
+  bottom: -8px;
+  position: absolute;
+  color: rgb(237, 148, 85);
+}
+
+
 
 .bubble-machine {
    position: absolute;
@@ -163,7 +187,7 @@ $bubble-height: 98px;
       right: 18%;
       border-radius: 50%;
       box-shadow:
-         5px -5px 10px rgba(red, 0.075),
+         5px -5px 10px rgba(blue, 0.075),
          -9px 10px 5px rgba(white, 0.5) inset,
       ;
    }
@@ -240,12 +264,9 @@ $bubble-height: 98px;
 }
 
 @keyframes float-up {
-   50% {
-      top: 30%;
-   }
-   60% {
-      top: 40%;
-   }
+  0% {
+    right: 50%;
+  }
    100% {
       top: -50%;
       right: 40%;
@@ -260,10 +281,10 @@ $bubble-height: 98px;
 }
 
 @keyframes spin {
-   from {
+   0% {
       transform: rotate(0deg);
    }
-   to {
+   100% {
       transform: rotate(360deg);
    }
 }
