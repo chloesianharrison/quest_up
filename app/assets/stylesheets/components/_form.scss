@@ -1,28 +1,35 @@
+.form-name-container{
+  width:110%;
+}
 .form-name{
   background-color: $sage;
   padding: 3px;
   border-radius: 5px;
   box-shadow: 5px 2px 2px #79936d;
   z-index: 5;
+  width: 100%;
 }
 
 .form-background{
   background-color: $light-sage;
   padding:0px 10px 10px 10px;
+
 }
 
+.quest_name{
+  margin-bottom: 0px!important;
+  padding-bottom: 1px!important;
+}
 .input-bg {
   background-color: #FFF;
-  margin-bottom: 1px;
+  margin-bottom: 0px!important;
+  padding-bottom: 1px!important;
 }
 
 .calendar{
   max-width: 300px!important;
   height: 300px!important;
-  margin-bottom:20px;
-  // width:fit-content;
-  // width: 800px;
-  // height: 300px;
+  margin:20px auto;
 }
 
 .flatpickr-current-month{
@@ -59,4 +66,15 @@
   width:300px!important;
   min-width:300px!important;
 
+}
+
+.slider-container{
+  margin:20px auto;
+}
+.notes-container{
+  margin:20px auto;
+  width:300px;
+}
+.form-button-container{
+  margin:20px auto;
 }

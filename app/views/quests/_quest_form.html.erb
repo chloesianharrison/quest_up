@@ -1,7 +1,8 @@
 
 
 <div class="container form-container text-start">
-  <div class="form-background">
+<div class="form-name-container d-flex justify-content-center">
+  <div class="container form-background">
     <%= simple_form_for(quest) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -9,6 +10,7 @@
       <div class="form-name">
         <%= f.input :name, label: false, input_html: {class: "input-bg", placeholder:"New Quest"} %>
       </div>
+
       <div class= "calendar">
         <%= f.input :due_date,
                 as: :string,
@@ -27,8 +29,15 @@
         <%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" }}, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
         <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
       </div>
-      <%= f.input :notes %>
-      <%= f.submit %>
+      <div class="notes-container">
+      <%= f.input :notes, as: :text, input_html: {rows: 5, cols: 5} %>
+      </div>
+      <div class="form-button-container row">
+        <div class="col-12">
+          <%= f.submit %>
+        </div>
+      </div>
     <% end %>
+
   </div>
 </div>
