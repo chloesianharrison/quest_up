@@ -1,8 +1,6 @@
-.btn-review {
+.btn-card {
   color: $white;
-  background-color: $orange;
   border-radius: 15px;
-  border-color: $dark-orange;
   width: 50px;
   height: 20px;
   font-size: 12px;
@@ -10,6 +8,11 @@
   margin-right: 5px;;
   padding: 0;
   transition: 0.3s ease;
+}
+
+.btn-review {
+  background-color: $orange;
+  border-color: $dark-orange;
 
   &:hover{
     background-color: $dark-orange!important;
@@ -18,6 +21,16 @@
     }
 }
 
+.btn-quest {
+  background-color: $sage;
+  border-color: $dark-green;
+
+  &:hover{
+    background-color: $dark-green!important;
+    color: $white!important;
+    border-color: $dark-green!important;
+    }
+}
 .skipbutton{
   font-family: $headers-font;
   font-weight: 400;

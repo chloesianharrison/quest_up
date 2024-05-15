@@ -2,9 +2,27 @@
 <div class="container">
 <h1>Quests</h1>
 
-
-<% @quests.each do |quest| %>
-<h2><%= quest.name %></h2>
-<p><%= quest.xp %></p>
-<% end %>
+  <% @quests.each do |quest| %>
+    <details class="card card-list-outside-quest">
+      <summary class="d-flex justify-content-between">
+        <div class="card card-list-inside">
+          <p class="card-title"><%= quest.name %></p>
+        </div>
+        <div>
+          <%= quest.completed %><i class="fa-solid fa-square"></i></p>
+        </div>
+      </summary>
+      <div class="card card-list-info">
+        <p class="card-details">
+          <%= quest.notes %>
+        </p>
+          <br>
+          <div class="d-flex">
+            <p class="xp-reward flex-grow-1"><%= quest.xp %>XP</p>
+            <%= link_to "edit", edit_quest_path(quest), class:"btn btn-quest btn-card" %>
+            <%# <%= link_to "delete", quest_path(quest), class:"btn btn-quest btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          </div>
+      </div>
+    </details>
+  <% end %>
 </div>
