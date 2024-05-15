@@ -1,32 +1,33 @@
 
-<body class="bodygame">
+<body class="bodygame" id="removescrollbar">
 
-  <%= link_to "skip game", quests_path, class: "btn", id: "skipbutton"%>
+  <%= link_to "skip", quests_path, class: "btn", id: "skipbutton-position", class: "skipbutton"%>
   <p id="xpCounter">xp: 0</p>
 
   <p class="message">Click the bubbles to pop them</p>
+  <h5 id="minimessage">pop the bubbles to gain 10xp!</h5>
   <!-- <div class="bubble-machine"></div> -->
   <div class="bubble-container">
     <div class="bubble">
         <div class="bubble-border"></div>
-        <div class="bubble-pop">+1xp</div>
+        <div class="bubble-pop"></div>
     </div>
   </div>
-  <div class="bubble bubble2">
+  <div class="bubble bubble2" id="smallleft">
     <div class="bubble-border"></div>
-    <div class="bubble-pop">+1xp</div>
+    <div class="bubble-pop"></div>
   </div>
   <div class="bubble bubble3">
     <div class="bubble-border"></div>
-    <div class="bubble-pop">+1xp</div>
+    <div class="bubble-pop"></div>
   </div>
-  <div class="bubble bubble4">
+  <div class="bubble bubble4" id="smallleft">
     <div class="bubble-border"></div>
-    <div class="bubble-pop">+1xp</div>
+    <div class="bubble-pop"></div>
   </div>
-  <div class="bubble bubble5"><div class="bubble-border"></div><div class="bubble-pop">+1xp</div></div>
-  <div class="bubble bubble6"><div class="bubble-border"></div><div class="bubble-pop">+1xp</div></div>
-  <div class="bubble bubble7"><div class="bubble-border"></div><div class="bubble-pop">+1xp</div></div>
-  <div class="bubble bubble8"><div class="bubble-border"></div><div class="bubble-pop">+1xp</div></div>
-  <div class="bubble bubble9"><div class="bubble-border"></div><div class="bubble-pop">+1xp</div></div>
+  <div class="bubble bubble5" id="smallleft"><div class="bubble-border"></div><div class="bubble-pop"></div></div>
+  <div class="bubble bubble6"><div class="bubble-border"></div><div class="bubble-pop"></div></div>
+  <div class="bubble bubble7" id="smallleft"><div class="bubble-border"></div><div class="bubble-pop"></div></div>
+  <div class="bubble bubble8"><div class="bubble-border"></div><div class="bubble-pop"></div></div>
+  <div class="bubble bubble9" id="smallleft"><div class="bubble-border"></div><div class="bubble-pop"></div></div>
 </body>

@@ -48,30 +48,40 @@ $bubble-height: 98px;
 }
 
 .bodygame {
-   // TODO: Get bubble colours based on background colour variable
-   background-color: rgba(254, 250, 218, 0.4);
-   font-size: 2rem;
-   -webkit-font-smoothing: antialiased;
+  // TODO: Get bubble colours based on background colour variable
+  background-color: rgba(254, 250, 218, 0.4);
+  font-size: 2rem;
+  -webkit-font-smoothing: antialiased;
+}
+
+#removescrollbar{
+  overflow: hidden;
 }
 
 .message {
-   text-align: center;
-   line-height: 1;
-   font-family: $headers-font;
-   font-weight: 400;
-   font-style: normal;
-   margin-top: 40px;
-   color: rgb(114, 153, 96);
-}
-#skipbutton{
+  text-align: center;
+  line-height: 1;
   font-family: $headers-font;
   font-weight: 400;
   font-style: normal;
-  font-size: large;
+  margin-top: 40px;
+  color: rgb(114, 153, 96);
+}
+
+#minimessage{
+  text-align: center;
+  color: rgb(114, 153, 96);
+  font-family: $headers-font;
+  font-weight: 400;
+  font-style: normal;
+
+}
+
+#skipbutton-position{
   bottom: 0;
   position: absolute;
-  color: rgb(237, 148, 85);
   right: 3px;
+  margin: 15px;
 }
 
 #xpCounter{
@@ -82,7 +92,11 @@ $bubble-height: 98px;
   left: 9px;
   bottom: -8px;
   position: absolute;
-  color: rgb(237, 148, 85);
+  color: black;
+  background-color: $orange;
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: none;
 }
 
 
@@ -265,7 +279,7 @@ $bubble-height: 98px;
 
 @keyframes float-up {
   0% {
-    right: 50%;
+    right: 15%;
   }
    100% {
       top: -50%;
@@ -293,4 +307,9 @@ $bubble-height: 98px;
    50% {
       border-radius-top-right: 45%;
    }
+}
+
+
+#smallleft{
+  left: randomNum(25px, 100px);
 }
