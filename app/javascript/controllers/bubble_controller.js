@@ -23,10 +23,13 @@ const resetBubble = (bubble) => {
    bubble.style.left = '';
 };
 
+const pop = new Audio('http://contentservice.mc.reyrey.net/audio_v1.0.0/?id=e049b733-1543-51fd-9ce9-680f57226aa1')
+
 bubbles.forEach(bubble => {
    bubble.addEventListener('click', (e) => {
       popBubble(e, bubble);
       xpCount += 1;
+      pop.play()
       counter.innerText = `xp: ${xpCount}`;
       if (xpCount === 10) {
         window.location.href = "/quests";

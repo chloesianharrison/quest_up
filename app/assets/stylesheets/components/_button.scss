@@ -10,3 +10,15 @@
   margin-right: 5px;;
   padding-bottom: 0;
 }
+
+.skipbutton{
+  font-family: $headers-font;
+  font-weight: 400;
+  font-style: normal;
+  font-size: large;
+  color: black;
+  background-color: $orange;
+  padding: 10px;
+  border-radius: 20px;
+  text-decoration: none;
+}
