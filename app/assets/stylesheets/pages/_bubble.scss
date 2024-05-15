@@ -57,14 +57,14 @@ $bubble-height: 98px;
 .message {
    text-align: center;
    line-height: 1;
-   font-family: "Kavivanar", cursive;
+   font-family: $headers-font;
    font-weight: 400;
    font-style: normal;
    margin-top: 40px;
    color: rgb(114, 153, 96);
 }
 #skipbutton{
-  font-family: "Kavivanar", cursive;
+  font-family: $headers-font;
   font-weight: 400;
   font-style: normal;
   font-size: large;
@@ -75,7 +75,7 @@ $bubble-height: 98px;
 }
 
 #xpCounter{
-  font-family: "Kavivanar", cursive;
+  font-family: $headers-font;
   font-weight: 400;
   font-size: large;
   font-style: normal;
