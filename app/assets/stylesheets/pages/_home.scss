@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+#home-title{
+  font-family: $title-font;
+  text-align: center;
+  margin-top: 50%;
+  font-size: 50px;
+}
+#home-text{
+  text-align: center;
+  margin-top: 8%;
+  font-size: 25px;
+  font-family: $headers-font;
+  font-weight: 850;
+
+}
+
+#btn-left{
+  left: 3px;
+}
+
+#btn-right{
+  right: 3px;
+}
