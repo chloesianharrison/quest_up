@@ -1,13 +1,6 @@
-<div class="container">
+<div class="container text-center mb-3 mt-3">
 <h1>Create a reward</h1>
 
-<div><%= simple_form_for(@reward) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= render "rewards_form", reward: @reward %>
 
-  <%= f.input :name %>
-  <%= f.input :xp, label: "XP required:" %>
-  <%= f.input :details, label: "Details" %>
-
-  <%= f.submit "Create"%>
-<% end %>
+</div>

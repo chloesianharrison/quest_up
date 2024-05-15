@@ -1,20 +1,20 @@
 
 
-<div class="container form-container text-start">
+<div class="container form-container text-start mb-3">
 <div class="form-name-container d-flex justify-content-center">
-  <div class="container form-background">
+
     <%= simple_form_for(quest) do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-name">
-        <%= f.input :name, label: false, input_html: {class: "input-bg", placeholder:"New Quest"} %>
+        <%= f.input :name, label: false, input_html: {class: "input-bg", placeholder:"New Quest"}, :label_html => { :class => 'form-label-font' } %>
       </div>
-
+      <div class="container form-background">
       <div class= "calendar">
         <%= f.input :due_date,
                 as: :string,
-                label: "Due date:",
+                label: "Due date:", :label_html => { :class => 'form-label-font' },
                 input_html: { data: { controller: "datepicker", alt_input: "true", inline: true}}%>
       </div>
       <div data-controller="slider" class="slider-container", data-slider-label-value="Fun Rating:" >
@@ -34,7 +34,7 @@
       </div>
       <div class="form-button-container row">
         <div class="col-12">
-          <%= f.submit %>
+          <%= f.submit "Create Quest", class: "btn-form"%>
         </div>
       </div>
     <% end %>

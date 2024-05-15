@@ -6,6 +6,10 @@ export default class extends Controller {
   static values = {
     label: String
   }
+  initialize(){
+    let rating = this.sliderValueTarget.value
+    this.sliderDisplayTarget.innerHTML = `${this.labelValue} ${rating}`;
+  }
 
   connect() {
   }
