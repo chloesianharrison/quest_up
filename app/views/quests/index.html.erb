@@ -20,7 +20,7 @@
           <div class="d-flex">
             <p class="xp-reward flex-grow-1"><%= quest.xp %>XP</p>
             <%= link_to "edit", edit_quest_path(quest), class:"btn btn-quest btn-card" %>
-            <%# <%= link_to "delete", quest_path(quest), class:"btn btn-quest btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "delete", quest_path(quest), class:"btn btn-quest btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
       </div>
     </details>
