@@ -1,12 +1,26 @@
 <div class="container">
   <h1>Rewards</h1>
 
-  <div class="card-product-reward">
-    <% @rewards.each do |reward| %>
-      <p><%= reward.name %>
-      <%= reward.xp %>
-      <%= reward.details %>
-      <%= reward.completed%><i class="fa-regular fa-star"></i></p>
-    <% end %>
-  </div>
+  <% @rewards.each do |reward| %>
+    <div class="card card-list-outside">
+      <div class="d-flex justify-content-between">
+        <div class="card card-list-inside">
+          <h2><%= reward.name %>
+        </div>
+        <div>
+          <%= reward.completed%><i class="fa-regular fa-star"></i></h2>
+        </div>
+      </div>
+      <div class="card card-list-info">
+        <p>
+          <%= reward.details %>
+          <br>
+          <div class="d-flex justify-content-between">
+            <%= reward.xp%>XP
+            <%= link_to "edit", edit_reward_path(reward), class:"btn btn-primary btn-review-edit"%>
+          </div>
+        </p>
+      </div>
+    </div>
+  <% end %>
 </div>
