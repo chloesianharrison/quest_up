@@ -1,15 +1,16 @@
-<div class="container">
+<div class="container text-center mt-3 mb-3">
 <h1>Edit a reward</h1>
 
-  <%= simple_form_for(@reward) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<%= render "rewards_form", reward: @reward %>
+  <%# <%= simple_form_for(@reward) do |f| %>
+  <%# <%= f.error_notification %>
+  <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.input :name %>
-  <%= f.input :xp, label: "XP required:" %>
-  <%= f.input :details, label: "Details" %>
+  <%# <%= f.input :name %>
+  <%# <%= f.input :xp, label: "XP required:" %>
+  <%# <%= f.input :details, label: "Details" %>
 
-  <%= f.submit "Save"%>
-<% end %>
+  <%# <%= f.submit "Save"%>
+<%# <% end %>
 
 </div>

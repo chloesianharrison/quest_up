@@ -1,0 +1,20 @@
+<div class="container form-container text-start">
+<div class="rewards-name-container d-flex justify-content-center">
+
+<%= simple_form_for(reward) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="rewards-name">
+  <%= f.input :name, label: false, input_html: {class: "input-bg", placeholder:"New reward"}, :label_html => { :class => 'form-label-font' } %>
+  </div>
+
+  <div class="container rewards-background mt-3 mb-3">
+  <%= f.input :xp, label: "XP required:" %>
+  <%= f.input :details, label: "Details" %>
+  <div class="form-button-container">
+    <%= f.submit "Create", class: "btn-rewards"%>
+  </div>
+<% end %>
+</div>
+</div>
+</div>

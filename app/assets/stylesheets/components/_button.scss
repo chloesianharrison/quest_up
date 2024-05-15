@@ -42,3 +42,30 @@
   border-radius: 20px;
   text-decoration: none;
 }
+
+.btn-form{
+  border-radius: 15px;
+  background-color: $orange;
+  border-color: $dark-orange;
+  // color: $dark-green;
+
+  &:hover{
+    background-color: $sage;
+    border-color: $dark-green;
+    color: white;
+
+  }
+}
+
+.btn-rewards {
+  border-radius: 15px;
+  background-color: $sage;
+  border-color: $dark-green;
+  // color: $dark-green;
+
+  &:hover{
+    background-color: $orange;
+    border-color: $dark-orange;
+    color: white;
+  }
+}

@@ -1,6 +1,18 @@
 .form-name-container{
-  width:110%;
+  width:87%;
+  background-color: $light-sage;
+  border-radius: 5px;
 }
+.rewards-name-container{
+  width:87%;
+  background-color: $light-orange;
+  border-radius: 5px;
+}
+
+.new_reward{
+  width:100%;
+}
+
 .form-name{
   background-color: $sage;
   padding: 3px;
@@ -10,16 +22,39 @@
   width: 100%;
 }
 
+.rewards-name{
+  width: 100%;
+  background-color: $orange;
+  padding: 3px;
+  border-radius: 5px;
+  box-shadow: 5px 2px 2px #af6d3e;
+  z-index: 5;
+
+}
+
+.reward_name{
+  margin-bottom: 0px!important;
+  padding-bottom: 1px!important;
+}
+
+.edit_reward {
+  width:100%;
+}
 .form-background{
   background-color: $light-sage;
-  padding:0px 10px 10px 10px;
+  // padding:0px 10px 10px 10px;
+}
 
+.rewards-background{
+  background-color: $light-orange;
+  width:87%;
 }
 
 .quest_name{
   margin-bottom: 0px!important;
   padding-bottom: 1px!important;
 }
+
 .input-bg {
   background-color: #FFF;
   margin-bottom: 0px!important;
@@ -77,4 +112,9 @@
 }
 .form-button-container{
   margin:20px auto;
+  text-align: center;
+}
+
+.form-label-font, .sliderDisplay{
+  font-family: $body-font;
 }
