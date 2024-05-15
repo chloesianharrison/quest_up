@@ -2,15 +2,15 @@
   <h1>Rewards</h1>
 
   <% @rewards.each do |reward| %>
-    <div class="card card-list-outside-reward">
-      <div class="d-flex justify-content-between">
+    <details class="card card-list-outside-reward">
+      <summary class="d-flex justify-content-between">
         <div class="card card-list-inside">
           <p class="card-title"><%= reward.name %></p>
         </div>
         <div>
           <%= reward.completed %><i class="fa-solid fa-star"></i></p>
         </div>
-      </div>
+      </summary>
       <div class="card card-list-info">
         <p class="card-details">
           <%= reward.details %>
@@ -22,6 +22,6 @@
             <%= link_to "delete", reward_path(reward), class:"btn btn-review", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
       </div>
-    </div>
+    </details>
   <% end %>
 </div>
