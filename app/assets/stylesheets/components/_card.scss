@@ -1,16 +1,37 @@
-.card-list-outside {
+.card-list-outside-reward {
   margin-bottom: 15px;
   border-radius: 10px;
   padding: 10px;
-  background-color: #ED9455;
+  background-color: $orange;
+  font-family: $body-font;
+  box-shadow: 3px 3px 2px $light-gray ;
 }
 
 .card-list-inside {
   border-radius: 10px;
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px;
+  background-color: $white;
+  font-size: 18px;
+  padding: 10px;
 }
 
 .card-list-info {
   border-radius: 10px;
+  background-color: $white;
+  font-size: 16px;
+}
+
+.card-title {
+  margin-bottom: 0px;
+}
+
+.card-details {
+  margin:0;
+  padding:10px;
+}
+
+.xp-reward {
+  margin: 0;
+  padding-left: 10px;
 }
