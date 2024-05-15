@@ -49,13 +49,14 @@ $bubble-height: 98px;
 
 .bodygame {
   // TODO: Get bubble colours based on background colour variable
-  background-color: rgba(254, 250, 218, 0.4);
+  // background-color: rgba(254, 250, 218, 0.4);
   font-size: 2rem;
   -webkit-font-smoothing: antialiased;
 }
 
 #removescrollbar{
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .message {
