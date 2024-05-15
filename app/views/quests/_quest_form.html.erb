@@ -1,24 +1,33 @@
 
 
-<div class="form-container">
-
-<%= simple_form_for(quest) do |f| %>
-<%= f.input :name %>
-<%= f.input :notes %>
-<%= f.input :due_date %>
-<div data-controller="slider" class="slider-container", data-slider-label-value="Fun Rating:" >
-<%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"} %>
-   <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
-</div>
-<div data-controller="slider" class="slider-container" data-slider-label-value="Difficulty Rating:">
-<%= f.input :difficulty_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
-   <%# <p class="slider-display m-3" data-slider-target="sliderDisplay"></p> %>
-</div>
-<div data-controller="slider" class="slider-container" data-slider-label-value="Consequence Rating:">
-<%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" }}, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
-   <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
-</div>
-<%= f.submit %>
-<% end %>
-
+<div class="form-container text-start">
+  <div class="form-background">
+    <%= simple_form_for(quest) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-name">
+        <%= f.input :name, label: false, input_html: {class: "form-control input-bg", placeholder:"New Quest"} %>
+      </div>
+      <div class= "calendar">
+        <%= f.input :due_date,
+                as: :string,
+                label: "Due date:",
+                input_html: { data: { controller: "datepicker", alt_input: "true", inline: true}}%>
+      </div>
+      <div data-controller="slider" class="slider-container", data-slider-label-value="Fun Rating:" >
+        <%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"} %>
+        <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
+      </div>
+      <div data-controller="slider" class="slider-container" data-slider-label-value="Difficulty Rating:">
+        <%= f.input :difficulty_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
+        <%# <p class="slider-display m-3" data-slider-target="sliderDisplay"></p> %>
+      </div>
+      <div data-controller="slider" class="slider-container" data-slider-label-value="Consequence Rating:">
+        <%= f.input :consequence_level, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" }}, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"}  %>
+        <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
+      </div>
+      <%= f.input :notes %>
+      <%= f.submit %>
+    <% end %>
+  </div>
 </div>
