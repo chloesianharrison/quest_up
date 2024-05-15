@@ -18,8 +18,8 @@
           <br>
           <div class="d-flex">
             <p class="xp-reward flex-grow-1"><%= reward.xp %>XP</p>
-            <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review" %>
-            <%= link_to "delete", reward_path(reward), class:"btn btn-review", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
+            <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
       </div>
     </details>
