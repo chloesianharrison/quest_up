@@ -1,0 +1,80 @@
+.form-name-container{
+  width:110%;
+}
+.form-name{
+  background-color: $sage;
+  padding: 3px;
+  border-radius: 5px;
+  box-shadow: 5px 2px 2px #79936d;
+  z-index: 5;
+  width: 100%;
+}
+
+.form-background{
+  background-color: $light-sage;
+  padding:0px 10px 10px 10px;
+
+}
+
+.quest_name{
+  margin-bottom: 0px!important;
+  padding-bottom: 1px!important;
+}
+.input-bg {
+  background-color: #FFF;
+  margin-bottom: 0px!important;
+  padding-bottom: 1px!important;
+}
+
+.calendar{
+  max-width: 300px!important;
+  height: 300px!important;
+  margin:20px auto;
+}
+
+.flatpickr-current-month{
+  font-size:16px!important;
+  height: 2em!important;
+}
+.flatpickr-month{
+  height: 2em;
+  font-size:16px;
+}
+
+.flatpickr-months{
+  height: 1.5em!important;
+}
+.flatpickr-calendar {
+  // width: 200px!important;
+  font-size: 16px!important;
+  line-height: 18px!important;
+  width: 300px!important;
+}
+.flatpickr-weekdays{
+  font-size: 16px;
+  width:100%;
+}
+.flatpickr-day{
+  height:30px!important;
+}
+.flatpickr-days{
+  font-size:16px;
+  width: 300px!important;
+}
+.dayContainer{
+  max-width:300px!important;
+  width:300px!important;
+  min-width:300px!important;
+
+}
+
+.slider-container{
+  margin:20px auto;
+}
+.notes-container{
+  margin:20px auto;
+  width:300px;
+}
+.form-button-container{
+  margin:20px auto;
+}
