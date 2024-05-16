@@ -1,16 +1,16 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="d-flex nav-xp-level">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-items-center">
+  <div class="d-flex nav-xp-level justify-content-center">
       <% if current_user.xp < 100 %>
-        <p class="ms-2 me-2 mb-1">XP: <%= current_user.xp%></p>
         <p class="me-2 mb-1">Level: 0</p>
+        <p class="ms-2 me-2 mb-1">XP: <%= current_user.xp%></p>
       <% elsif %>
         <% levels = current_user.xp.to_s.chars %>
-        <p class="ms-2 me-2">XP: <%= levels[1]%><%= levels[2] %></p>
         <p class="ms-2">Level:<%= levels[0] %> </p>
+        <p class="ms-2 me-2">XP: <%= levels[1]%><%= levels[2] %></p>
       <% else %>
         <% levels = current_user.xp.to_s.chars %>
-        <p class="ms-2 me-2">XP: <%= levels[2]%><%= levels[3] %></p>
         <p class="me-2">Level:<%= levels[0] %><%= levels[1] %> </p>
+        <p class="ms-2 me-2">XP: <%= levels[2]%><%= levels[3] %></p>
       <% end %>
     </div>
   <div class="container-fluid">
