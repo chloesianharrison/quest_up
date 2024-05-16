@@ -1,20 +1,25 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-
+  <div class="d-flex nav-xp-level">
+      <% if current_user.xp < 100 %>
+        <p class="ms-2 me-2 mb-1">XP: <%= current_user.xp%></p>
+        <p class="me-2 mb-1">Level: 0</p>
+      <% elsif %>
+        <% levels = current_user.xp.to_s.chars %>
+        <p class="ms-2 me-2">XP: <%= levels[1]%><%= levels[2] %></p>
+        <p class="ms-2">Level:<%= levels[0] %> </p>
+      <% else %>
+        <% levels = current_user.xp.to_s.chars %>
+        <p class="ms-2 me-2">XP: <%= levels[2]%><%= levels[3] %></p>
+        <p class="me-2">Level:<%= levels[0] %><%= levels[1] %> </p>
+      <% end %>
+    </div>
   <div class="container-fluid">
+
     <div class="progress nav-width">
       <div class="progress-bar bg-warning" role="progressbar" style="width: <%= current_user.xp %>%" aria-valuenow=<%= current_user.xp %> aria-valuemin="0" aria-valuemax="100">
       </div>
 
     </div>
-      <% if current_user.xp < 100 %>
-        <p>XP: <%= current_user.xp%></p>
-        <p>Level: 0</p>
-      <% elsif %>
-        <% levels = current_user.xp.to_s.chars %>
-        <p>Level:<%= levels[0] %> </p>
-      <% else %>
-        <% levels = current_user.xp.to_s.chars %>
-        <p>Level:<%= levels[0] %><%= levels[1] %> </p>
-      <% end %>
+
   </div>
 </div>
