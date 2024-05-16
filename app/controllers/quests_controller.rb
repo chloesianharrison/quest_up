@@ -24,10 +24,14 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
-    if @quest.update(quest_params)
-      redirect_to quests_path
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @quest.update(quest_params)
+        format.html {redirect_to quests_path}
+        format.json
+      else
+        format.html {render :edit, status: :unprocessable_entity}
+        format.json
+      end
     end
   end
 
