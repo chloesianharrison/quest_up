@@ -3,14 +3,14 @@
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
-    <details class="card card-list-outside-quest">
+    <details class="card card-list-outside-quest" data-controller="xp">
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside">
           <p class="card-title"><%= quest.name %></p>
         </div>
-        <div data-controller="xp">
-          <div data-xp-target="completed">
-            <input type="checkbox" class="checkbox-style" data-action="click->xp#total" checked=<%= quest.completed %>></div></i></p>
+        <div>
+          <div>
+            <input type="checkbox" class="checkbox-style" data-action="click->xp#total" checked=<%= quest.completed %> data-xp-target="completed" data-user-value=<%current_user%>></div></i></p>
         </div>
       </summary>
       <div class="card card-list-info">
