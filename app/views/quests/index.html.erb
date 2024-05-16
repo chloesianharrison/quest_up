@@ -1,5 +1,5 @@
 
-<div class="container text-center mt-3 mb-3">
+<div class="container container text-center mt-3 mb-3" data-controller="checkboxes">
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
@@ -9,8 +9,14 @@
           <p class="card-title"><%= quest.name %></p>
         </div>
         <div>
+<<<<<<< HEAD
           <div>
             <input type="checkbox" class="checkbox-style" data-action="click->xp#total" checked=<%= quest.completed %> data-xp-target="completed" data-user-value=<%current_user%>></div></i></p>
+=======
+          <%= simple_form_for quest, class: "form-check checkbox-style" do |f| %>
+            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeQuest"}} %>
+          <% end %>
+>>>>>>> dce7ec5f21b765ceac301025ce55c8b1a2de91c3
         </div>
       </summary>
       <div class="card card-list-info">
