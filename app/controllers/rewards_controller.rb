@@ -25,10 +25,14 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
-    if @reward.update(reward_params)
-      redirect_to rewards_path
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @reward.update(reward_params)
+        format.html {redirect_to rewards_path}
+        format.json
+      else
+        format.html {render :edit, status: :unprocessable_entity}
+        format.json
+      end
     end
   end
 

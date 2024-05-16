@@ -7,8 +7,10 @@
         <div class="card card-list-inside">
           <p class="card-title"><%= reward.name %></p>
         </div>
-        <div>
-          <%= reward.completed %><i class="fa-solid fa-star"></i></p>
+       <div>
+          <%= simple_form_for reward, class: "form-check checkbox-style" do |f| %>
+            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeReward"}}%>
+          <% end %>
         </div>
       </summary>
       <div class="card card-list-info">
