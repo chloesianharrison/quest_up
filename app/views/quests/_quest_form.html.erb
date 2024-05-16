@@ -15,7 +15,7 @@
         <%= f.input :due_date,
                 as: :string,
                 label: "Due date:", :label_html => { :class => 'form-label-font' },
-                input_html: { data: { controller: "datepicker", alt_input: "true", inline: true}}%>
+                input_html: { data: { controller: "datepicker", alt_input: "true", inline: true}, class:"input-bg"}%>
       </div>
       <div data-controller="slider" class="slider-container", data-slider-label-value="Fun Rating:" >
         <%= f.input :fun_rating, as: :range, input_html:{ min:"0", max:"10", step:"1", class:"slider", 'data-slider-target'=> "sliderValue", data:{ action: "input->slider#handleSlider" } }, :label_html => { :class => 'sliderDisplay', 'data-slider-target'=> "sliderDisplay"} %>
@@ -30,7 +30,7 @@
         <%# <p class="slider-display" data-slider-target="sliderDisplay"></p> %>
       </div>
       <div class="notes-container">
-      <%= f.input :notes, as: :text, input_html: {rows: 5, cols: 5} %>
+      <%= f.input :notes, as: :text, input_html: {rows: 5, cols: 5, class:"input-bg"} %>
       </div>
       <div class="form-button-container row">
         <div class="col-12">
