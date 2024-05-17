@@ -1,4 +1,4 @@
-<div class="container text-center mt-3 mb-3">
+<div class="container text-center mt-3 mb-3 margin-bottom">
   <h1 class="mb-3">Rewards</h1>
 
   <% @rewards.each do |reward| %>
@@ -8,7 +8,7 @@
           <p class="card-title"><%= reward.name %></p>
         </div>
        <div>
-          <%= simple_form_for reward, class: "form-check checkbox-style" do |f| %>
+          <%= simple_form_for reward, class: "" do |f| %>
             <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeReward"}}%>
           <% end %>
         </div>

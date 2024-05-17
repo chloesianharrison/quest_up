@@ -32,7 +32,6 @@ class QuestsController < ApplicationController
         @user.save
         format.html {redirect_to quests_path}
         format.json
-
       else
         format.html {render :edit, status: :unprocessable_entity}
         format.json

@@ -1,5 +1,5 @@
 
-<div class="container container text-center mt-3 mb-3" data-controller="checkboxes">
+<div class="container container text-center mt-3 mb-3 margin-bottom" data-controller="checkboxes">
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
@@ -9,7 +9,7 @@
           <p class="card-title"><%= quest.name %></p>
         </div>
         <div>
-          <%= simple_form_for quest, class: "form-check checkbox-style" do |f| %>
+          <%= simple_form_for quest, class: "", id: "checkbox" do |f| %>
             <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeQuest"}} %>
           <% end %>
         </div>
