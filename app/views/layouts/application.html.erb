@@ -13,10 +13,12 @@
 
       <% unless params[:controller] == "pages" then %>
         <body class="page-height">
-          <%= render "shared/navbar" %>
+          <% if user_signed_in? == true %>
+            <%= render "shared/navbar" %>
+          <% end %>
           <%= render "shared/flashes" %>
       <% else %>
-        <body id="removescrollbar">
+        <div id="removescrollbar">
       <% end %>
 
       <%= yield %>
