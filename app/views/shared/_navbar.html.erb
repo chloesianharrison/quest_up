@@ -1,22 +1,29 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-items-center">
   <div class="d-flex nav-xp-level justify-content-center">
       <% if current_user.xp < 100 %>
-        <p class="me-2 mb-1">Level: 0</p>
-        <p class="ms-2 me-2 mb-1">XP: <%= current_user.xp%></p>
+          <% level = 0 %>
+          <% xp = current_user.xp %>
       <% elsif %>
-        <% levels = current_user.xp.to_s.chars %>
-        <p class="ms-2">Level:<%= levels[0] %> </p>
-        <p class="ms-2 me-2">XP: <%= levels[1]%><%= levels[2] %></p>
-      <% else %>
-        <% levels = current_user.xp.to_s.chars %>
-        <p class="me-2">Level:<%= levels[0] %><%= levels[1] %> </p>
-        <p class="ms-2 me-2">XP: <%= levels[2]%><%= levels[3] %></p>
+          <% levels = current_user.xp.to_s.chars %>
+          <% level = levels [0] %>
+          <% xp = levels[1] + levels[2] %>
       <% end %>
+      <p class="me-2 mb-1">Level: <%= level %></p>
+      <p class="ms-2 me-2 mb-1">XP: <%= xp %></p>
+
+
+        <%# <p class="ms-2">Level:<%= levels[0] </p> %>
+        <%# <p class="ms-2 me-2">XP: <%= levels[1]<%= levels[2]</p> %>
+      <%# <% else %>
+        <%# <% levels = current_user.xp.to_s.chars %>
+        <%# <p class="me-2">Level:<%= levels[0]<%= levels[1] </p> %>
+        <%# <p class="ms-2 me-2">XP: <%= levels[2]<%= levels[3]</p> %>
+
     </div>
   <div class="container-fluid">
 
     <div class="progress nav-width">
-      <div class="progress-bar bg-warning" role="progressbar" style="width: <%= current_user.xp %>%" aria-valuenow=<%= current_user.xp %> aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar bg-warning" role="progressbar" style="width: <%= xp %>%" aria-valuenow=<%= current_user.xp %> aria-valuemin="0" aria-valuemax="100">
       </div>
 
     </div>
