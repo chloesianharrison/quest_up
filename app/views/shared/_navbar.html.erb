@@ -1,13 +1,13 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon justify-items-center">
   <div class="d-flex nav-xp-level justify-content-center">
-      <% if current_user.xp < 100 %>
+        <% if current_user.xp < 100 %>
           <% level = 0 %>
           <% xp = current_user.xp %>
-      <% elsif %>
+        <% elsif %>
           <% levels = current_user.xp.to_s.chars %>
           <% level = levels [0] %>
           <% xp = levels[1] + levels[2] %>
-      <% end %>
+        <% end %>
       <p class="me-2 mb-1">Level: <%= level %></p>
       <p class="ms-2 me-2 mb-1">XP: <%= xp %></p>
 
