@@ -8,9 +8,9 @@
         <div class="card card-list-inside">
           <p class="card-title"><%= quest.name %></p>
         </div>
-        <div>
-          <%= simple_form_for quest, class: "", id: "checkbox" do |f| %>
-            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeQuest"}} %>
+        <div class="jake-checkbox">
+          <%= simple_form_for quest, class: "checkbox-style" do |f| %>
+            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeQuest"}, id: "checkbox"} %>
           <% end %>
         </div>
       </summary>
