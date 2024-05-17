@@ -5,7 +5,7 @@
     <details class="card card-list-outside-reward">
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside">
-          <p class="card-title"><%= reward.name %></p>
+          <p class="card-title text-start"><%= reward.name %></p>
         </div>
        <div>
           <%= simple_form_for reward, class: "" do |f| %>
@@ -14,12 +14,12 @@
         </div>
       </summary>
       <div class="card card-list-info">
-        <p class="card-details">
+        <p class="card-details text-start">
           <%= reward.details %>
         </p>
           <br>
           <div class="d-flex">
-            <p class="xp-reward flex-grow-1"><%= reward.xp %>XP</p>
+            <p class="xp-reward flex-grow-1 text-start"><%= reward.xp %>XP</p>
             <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
             <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
