@@ -10,10 +10,11 @@
     <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   </head>
+
       <% unless params[:controller] == "pages" then %>
-        <body>
-        <%= render "shared/navbar" %>
-        <%= render "shared/flashes" %>
+        <body class="page-height">
+          <%= render "shared/navbar" %>
+          <%= render "shared/flashes" %>
       <% else %>
         <body id="removescrollbar">
       <% end %>
@@ -22,6 +23,7 @@
 
       <% unless params[:controller] == "pages" then %>
         <%= render "shared/footer" %>
+        </div>
       <% end %>
     </body>
 </html>
