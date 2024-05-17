@@ -1,7 +1,7 @@
   <nav>
     <ul class="navbar-nav d-flex position-fixed flex-row footer-nav">
       <li class="nav-item footer-btn-icon">
-        <a class="nav-link" href="https://www.questup.org/quests"><i class="fa-solid fa-list-check footer-icon"></i></a>
+        <a class="nav-link" href="/quests"><i class="fa-solid fa-list-check footer-icon"></i></a>
       </li>
       <li class="nav-item dropdown">
         <div class="btn-group footer-btn-icon">
@@ -9,23 +9,31 @@
             <i class="fa-solid fa-plus footer-icon"></i>
           </a>
           <div class="dropdown-menu dropdown-menu-end footer-menu menu-add" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item footer-menu-item" href="https://www.questup.org/quests/new">Add a new quest  <i class="fa-solid fa-list-check"></i></a>
-            <a class="dropdown-item footer-menu-item" href="https://www.questup.org/rewards/new">Add a new reward  <i class="fa-solid fa-trophy"></i></a>
+            <a class="dropdown-item footer-menu-item" href="/quests/new">Add a new quest  <i class="fa-solid fa-list-check"></i></a>
+            <a class="dropdown-item footer-menu-item" href="/rewards/new">Add a new reward  <i class="fa-solid fa-trophy"></i></a>
           </div>
         </div>
       </li>
       <li class="nav-item footer-btn-icon">
-        <a class="nav-link" href="https://www.questup.org/rewards"><i class="fa-solid fa-trophy footer-icon"></i></a>
+        <a class="nav-link" href="/rewards"><i class="fa-solid fa-trophy footer-icon"></i></a>
       </li>
       <li class="nav-item dropdown">
         <div class="btn-group footer-btn-icon">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-house-user footer-icon"></i>
           </a>
+        <% if params[:controller] == "devise/sessions" && params[:action] == "new" %>
           <div class="dropdown-menu dropdown-menu-end footer-menu menu-home" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item footer-menu-item" href="#">Help  <i class="fa-solid fa-circle-question"></i></a>
-              <a class="dropdown-item footer-menu-item" href="#">Contact us  <i class="fa-solid fa-envelope"></i></a>
+            <a class="dropdown-item footer-menu-item" href="#">Help <i class="fa-solid fa-circle-question"></i></a>
+            <a class="dropdown-item footer-menu-item" href="#">Contact us <i class="fa-solid fa-envelope"></i></a>
           </div>
+        <% else %>
+          <div class="dropdown-menu dropdown-menu-end footer-menu menu-home" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item footer-menu-item" href="#">Help <i class="fa-solid fa-circle-question"></i></a>
+            <a class="dropdown-item footer-menu-item" href="#">Contact us <i class="fa-solid fa-envelope"></i></a>
+            <a class="dropdown-item footer-menu-item" href="../users/sign_out" data-turbo-method="delete">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
+          </div>
+        <% end %>
         </div>
       </li>
     </ul>
