@@ -11,6 +11,6 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   resources :rewards, only: [:index, :new, :create, :edit, :update, :destroy]
-  resources :quests, only: [:index, :new, :create, :edit, :update]
+  resources :quests, only: [:index, :new, :create, :edit, :update, :destroy]
   get "bubble", to: "pages#bubble"
 end
