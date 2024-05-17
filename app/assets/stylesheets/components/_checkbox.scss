@@ -4,6 +4,7 @@
   accent-color: white;
   margin-top: 16px;
   margin-right: 4px;
+  background-color: white;
 }
 .checkbox-style:checked{
   background: rgba(40,40,40,0.7);
@@ -12,8 +13,4 @@
 
 .form-check label{
   display: none;
-}
-
-#checkbox:checked {
-  background-color: blue !important;
 }
