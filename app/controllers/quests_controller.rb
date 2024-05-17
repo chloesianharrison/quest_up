@@ -24,10 +24,15 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
+    @user = @quest.user
     respond_to do |format|
       if @quest.update(quest_params)
+        @user.xp += @quest.xp if @quest.completed == true
+        @user.xp -= @quest.xp if @quest.completed == false
+        @user.save
         format.html {redirect_to quests_path}
         format.json
+
       else
         format.html {render :edit, status: :unprocessable_entity}
         format.json

@@ -10,19 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_14_114010) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_16_142513) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "quests", force: :cascade do |t|
     t.string "name"
-    t.integer "xp"
+    t.integer "xp", default: 10
     t.string "notes"
     t.date "due_date"
     t.integer "fun_rating"
     t.integer "difficulty_rating"
     t.integer "consequence_level"
-    t.boolean "completed"
+    t.boolean "completed", default: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

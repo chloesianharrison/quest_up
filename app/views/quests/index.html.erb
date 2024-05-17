@@ -3,7 +3,7 @@
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
-    <details class="card card-list-outside-quest">
+    <details class="card card-list-outside-quest" data-controller="xp">
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside">
           <p class="card-title"><%= quest.name %></p>
