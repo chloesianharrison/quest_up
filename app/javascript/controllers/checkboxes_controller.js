@@ -10,21 +10,25 @@ export default class extends Controller {
     })
     .then(response => response.json())
     .then((data) => {
+      // get xp values
       const xp = document.getElementById('xpcounter')
       let newXp = parseInt(xp.innerText.split(' ')[1]) + data.quest_xp
-      console.log(newXp)
+      // get level values
       const level = document.getElementById('levelcounter')
+      let newLevel = parseInt(level.innerText.split(' ')[1])
+      // get progress bar
+      const progress = document.getElementById('progress-bar')
       if (newXp < 0){
-        const newLevel = parseInt(level.innerText.split(' ')[1]) -1
+        newLevel = newLevel -1
          newXp = 100 + newXp
-         level.innerText = `Level: ${newLevel}`
       } else if (newXp >= 100){
-        const newLevel = parseInt(level.innerText.split(' ')[1]) +1
+        newLevel = +1
         newXp = newXp - 100
-        level.innerText = `Level: ${newLevel}`
       }
+      level.innerText = `Level: ${newLevel}`
       xp.innerText = `XP: ${newXp}`
-
+      progress.style.width = `${newXp}%`
+      this.toSpend(newXp, newLevel)
     })
   }
 
@@ -35,7 +39,17 @@ export default class extends Controller {
       headers: { "Accept": "application/json" },
       body: new FormData(form)
     })
+  }
 
+
+
+  toSpend(newXp, newLevel){
+    const spend = document.getElementById('spend')
+    if (newLevel > 0){
+      spend.innerText = `XP to spend: ${newLevel}${newXp}`
+     } else {
+      spend.innerText = `XP to spend: ${newXp}`
+     }
   }
 
 }

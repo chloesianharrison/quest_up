@@ -3,6 +3,11 @@ class RewardsController < ApplicationController
 
   def index
     @rewards = Reward.where(user_id: current_user[:id])
+    @done = @rewards.where(completed: true)
+    @spend = current_user.xp
+    @done.each do |reward|
+      @spend -= reward.xp
+    end
   end
 
   def new
@@ -25,8 +30,12 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
+    @user = @reward.user
     respond_to do |format|
       if @reward.update(reward_params)
+        @spend = @user.xp - @reward.xp if @reward.completed == true
+        @spend = @user.xp if @reward.completed == false
+        @user.save
         format.html {redirect_to rewards_path}
         format.json
       else

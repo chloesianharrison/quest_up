@@ -1,5 +1,5 @@
 
-<div class="container container text-center mt-3 mb-3 margin-bottom" data-controller="checkboxes">
+<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes">
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
@@ -27,4 +27,10 @@
       </div>
     </details>
   <% end %>
+
+  <div class="congratulations d-none">
+    <h1>Congratulations!</h1>
+    <h1>You did it!</h1>
+    <p>You earned 10XP!</p>
+  </div>
 </div>
