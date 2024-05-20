@@ -1,9 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static values = {
-    token: String
-  }
 
   completeQuest(event) {
     event.preventDefault();
@@ -29,9 +26,9 @@ export default class extends Controller {
       const progress = document.getElementById('progress-bar')
       if (newXp < 0){
         newLevel = newLevel -1
-         newXp = 100 + newXp
+        newXp = 100 + newXp
       } else if (newXp >= 100){
-        newLevel = +1
+        newLevel = newLevel +1
         newXp = newXp - 100
       }
       level.innerText = `Level: ${newLevel}`
