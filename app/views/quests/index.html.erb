@@ -9,8 +9,8 @@
           <p class="card-title"><%= quest.name %></p>
         </div>
         <div>
-          <div class="custom-checkbox <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
-
+          <div class="custom-checkbox tick <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
+            <i class="fa-solid fa-check"></i>
           </div>
       </summary>
       <div class="card card-list-info">

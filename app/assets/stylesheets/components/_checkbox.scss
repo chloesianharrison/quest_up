@@ -1,14 +1,28 @@
 .custom-checkbox{
-  font-family: "fa-regular fa-star";
+  border-radius: 100%;
   width: 20px;
   height: 20px;
   color: black;
   margin-top: 16px;
   margin-right: 4px;
   background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox i {
+  opacity: 0;
+  color: white;
+  font-size: 15px;
+}
+
+.custom-checkbox.checked.tick i {
+  opacity: 1;
 }
 
 .custom-checkbox.checked{
+  border: 2px solid white;
   background: rgba(40,40,40,0.7);
   padding: 5px;
 }
