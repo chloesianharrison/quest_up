@@ -2,7 +2,7 @@
   <div class="d-flex nav-xp-level justify-content-center">
 
   <%# converts the xp to a level and a 2 digit xp rating %>
-        <% if current_user.xp < 100 %>
+        <% if current_user.xp = 100 %>
           <% @level = 0 %>
           <% @xp = current_user.xp %>
         <% elsif %>

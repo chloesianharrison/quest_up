@@ -1,6 +1,16 @@
 class QuestsController < ApplicationController
   def index
     @quests = Quest.where(user_id: current_user[:id])
+    case params['sortOption']
+    when 'easyQuest'
+      @quests = @quests.select { |quest| quest.xp < 40 }
+    when 'middleQuest'
+      @quests = @quests.select { |quest| quest.xp < 70 }
+    when 'hardQuest'
+      @quests = @quests.select { |quest| quest.xp > 70 }
+    when 'completed'
+      @quests = @quests.select { |quest| quest.completed }
+    end
   end
 
   def new
