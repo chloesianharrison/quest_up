@@ -27,7 +27,7 @@ class QuestsController < ApplicationController
     @quest.completed = !@quest.completed
     @quest.save
     respond_to do |format|
-      format.html {redirect_to quests_path}
+      format.html {redirect_to quests_path }
       format.json
     end
   end
