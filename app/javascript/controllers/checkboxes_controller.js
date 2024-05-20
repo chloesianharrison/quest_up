@@ -1,10 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-
+  static values = {
+    token: String
+  }
   completeQuest(event) {
     event.preventDefault();
-    const form = event.target.dataset.id
+    const questId = event.target.dataset.id
     event.target.classList.toggle('checked');
     fetch(`/quests/${questId}`, {
       method: "PATCH", // Could be dynamic with Stimulus values
