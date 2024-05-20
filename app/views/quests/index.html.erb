@@ -1,5 +1,8 @@
 
-<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes filter" >
+
+<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes" data-action="click->checkboxes#closeModal" data-checkboxes-token-value="<%= form_authenticity_token %>">
+<div id="modal-backdrop" data-checkboxes-target="modalDiv">
+
 <h1 class="mb-3">Quests</h1>
  <div class="dropdown filter">
     <button class="btn dropdown-toggle material-symbols-outlined filter-icon" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -36,16 +39,15 @@
   </div>
 <%# give form method of get to stay on same page and keep result %>
   <% @quests.each do |quest| %>
-    <details class="card card-list-outside-quest" data-controller="xp">
+    <details class="card card-list-outside-quest">
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside text-start">
           <p class="card-title"><%= quest.name %></p>
         </div>
-        <div class="jake-checkbox">
-          <%= simple_form_for quest, class: "checkbox-style" do |f| %>
-            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeQuest"}, id: "checkbox"} %>
-          <% end %>
-        </div>
+        <div>
+          <div class="custom-checkbox <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
+
+          </div>
       </summary>
       <div class="card card-list-info">
         <p class="card-details text-start">
@@ -60,10 +62,15 @@
       </div>
     </details>
   <% end %>
-
-  <div class="congratulations d-none">
-    <h1>Congratulations!</h1>
-    <h1>You did it!</h1>
-    <p>You earned 10XP!</p>
+</div>
+  <div class="modal" data-checkboxes-target="modal" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <h1>Congratulations!</h1>
+        <h1>You did it!</h1>
+        <p>You earned 10XP!</p>
+      </div>
+    </div>
   </div>
+
 </div>
