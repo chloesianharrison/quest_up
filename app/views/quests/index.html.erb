@@ -1,5 +1,5 @@
 
-<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes">
+<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes" data-checkboxes-token-value="<%= form_authenticity_token %>">
 <h1 class="mb-3">Quests</h1>
 
   <% @quests.each do |quest| %>
@@ -10,6 +10,7 @@
         </div>
         <div>
           <div class="custom-checkbox <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
+
           </div>
       </summary>
       <div class="card card-list-info">
