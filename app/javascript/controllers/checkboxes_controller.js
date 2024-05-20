@@ -1,9 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
+  static targets = ["modal", "modalDiv"]
   static values = {
     token: String
   }
+
   completeQuest(event) {
     event.preventDefault();
     const questId = event.target.dataset.id
@@ -37,6 +39,9 @@ export default class extends Controller {
       xp.innerText = `XP: ${newXp}`
       progress.style.width = `${newXp}%`
       this.toSpend(newXp, newLevel)
+      this.openModal()
+      // this.closeModal()
+      // setTimeout(this.closeModal, 3000)
     })
   }
 
@@ -54,8 +59,6 @@ export default class extends Controller {
     })
   }
 
-
-
   toSpend(newXp, newLevel){
     const spend = document.getElementById('spend')
     if (newLevel > 0){
@@ -65,4 +68,27 @@ export default class extends Controller {
      }
   }
 
+  openModal(){
+    this.modalTarget.classList.add("modal-display");
+    this.modalTarget.classList.add("show");
+    // document.body.innerHTML += '';
+    this.modalDivTarget.classList.add("modal-backdrop")
+    this.modalDivTarget.classList.add("fade")
+    this.modalDivTarget.classList.add("show")
+  }
+
+  closeModal(){
+    // console.log(this.modalTarget)
+    this.modalTarget.classList.remove("modal-display")
+    // modal.classList.remove("modal-display")
+    // this.modalTarget.classList.remove("modal-display");
+    this.modalTarget.classList.remove("show");
+    // this.bodyTarget.remove();
+    this.modalDivTarget.classList.remove("modal-backdrop")
+    this.modalDivTarget.classList.remove("fade")
+    this.modalDivTarget.classList.remove("show")
+    // document.getElementsByClassName('modal-backdrop').remove()
+    // this.modalTarget.classList.add("d-none")
+
+  }
 }
