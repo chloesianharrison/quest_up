@@ -1,16 +1,14 @@
-.checkbox-style{
-  width: 50px;
-  height: 50px;
-  accent-color: white;
+.custom-checkbox{
+  font-family: "fa-regular fa-star";
+  width: 20px;
+  height: 20px;
+  color: black;
   margin-top: 16px;
   margin-right: 4px;
   background-color: white;
 }
-.checkbox-style:checked{
+
+.custom-checkbox.checked{
   background: rgba(40,40,40,0.7);
   padding: 5px;
-}
-
-.form-check label{
-  display: none;
 }
