@@ -1,4 +1,4 @@
-<div class="container text-center mt-3 mb-3 margin-bottom">
+<div class="container text-center mt-3 mb-3 margin-bottom" data-controller='checkboxes' data-checkboxes-token-value="<%= form_authenticity_token %>">
   <h1 class="mb-3">Rewards</h1>
 
   <% @rewards.each do |reward| %>
@@ -8,9 +8,9 @@
           <p class="card-title text-start"><%= reward.name %></p>
         </div>
        <div>
-          <%= simple_form_for reward, class: "" do |f| %>
-            <%= f.input :completed, as: :boolean, input_html: {data: {action: "click->checkboxes#completeReward"}}%>
-          <% end %>
+          <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
+
+          </div>
         </div>
       </summary>
       <div class="card card-list-info">

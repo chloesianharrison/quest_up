@@ -25,14 +25,11 @@ class RewardsController < ApplicationController
 
   def update
     @reward = Reward.find(params[:id])
+    @reward.completed = !@reward.completed
+    @reward.save
     respond_to do |format|
-      if @reward.update(reward_params)
-        format.html {redirect_to rewards_path}
-        format.json
-      else
-        format.html {render :edit, status: :unprocessable_entity}
-        format.json
-      end
+      format.html {redirect_to rewards_path}
+      format.json
     end
   end
 
@@ -45,6 +42,6 @@ class RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:name, :xp, :details)
+    params.require(:reward).permit(:name, :xp, :details, :completed)
   end
 end
