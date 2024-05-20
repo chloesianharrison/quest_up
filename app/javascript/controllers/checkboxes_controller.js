@@ -8,18 +8,19 @@ export default class extends Controller {
 
   completeQuest(event) {
     event.preventDefault();
-    const questId = event.target.dataset.id
-    event.target.classList.toggle('checked');
+    event.currentTarget.classList.toggle('checked');
+
+    const questId = event.currentTarget.dataset.id;
     fetch(`/quests/${questId}`, {
-      method: "PATCH", // Could be dynamic with Stimulus values
+      method: "PATCH",
       headers: {
-        "Accept": "application/json",
-        "X-CSRF-Token": this.tokenValue
+         "Accept": "application/json",
+         "X-CSRF-Token": this.tokenValue
       },
       body: JSON.stringify({completed: true})
     })
-    .then(response => response.json())
-    .then((data) => {
+  .then(response => response.json())
+  .then((data) => {
       // get xp values
       const xp = document.getElementById('xpcounter')
       let newXp = parseInt(xp.innerText.split(' ')[1]) + data.quest_xp
@@ -47,13 +48,14 @@ export default class extends Controller {
 
   completeReward(event) {
     event.preventDefault();
-    const rewardId = event.target.dataset.id;
-    event.target.classList.toggle('checked');
+    event.currentTarget.classList.toggle('checked');
+
+    const rewardId = event.currentTarget.dataset.id;
     fetch(`/rewards/${rewardId}`, {
-      method: "PATCH", // Could be dynamic with Stimulus values
+      method: "PATCH",
       headers: {
-        "Accept": "application/json",
-        "X-CSRF-Token": this.tokenValue
+         "Accept": "application/json",
+         "X-CSRF-Token": this.tokenValue
       },
       body: JSON.stringify({completed: true})
     })
