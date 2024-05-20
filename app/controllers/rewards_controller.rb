@@ -6,7 +6,7 @@ class RewardsController < ApplicationController
     @done = @rewards.where(completed: true)
     @spend = current_user.xp
     @done.each do |reward|
-      @spend -= reward.xp
+      @spend -= reward.xp if reward.xp.positive?
     end
   end
 

@@ -1,5 +1,4 @@
 
-
 <div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes" data-action="click->checkboxes#closeModal" data-checkboxes-token-value="<%= form_authenticity_token %>">
 <div id="modal-backdrop" data-checkboxes-target="modalDiv">
 
@@ -41,7 +40,7 @@
   <% @quests.each do |quest| %>
     <details class="card card-list-outside-quest">
       <summary class="d-flex justify-content-between">
-        <div class="card card-list-inside text-start">
+        <div class="card card-list-inside text-start" data-checkboxes-target="bg">
           <p class="card-title"><%= quest.name %></p>
         </div>
         <div>
@@ -63,12 +62,12 @@
     </details>
   <% end %>
 </div>
-  <div class="modal" data-checkboxes-target="modal" >
-    <div class="modal-dialog">
-      <div class="modal-content">
+  <div class="modal fade" tabindex="-1" data-checkboxes-target="modal" >
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content pt-3 pb-3 bg-warning">
         <h1>Congratulations!</h1>
         <h1>You did it!</h1>
-        <p>You earned 10XP!</p>
+        <p data-checkboxes-target="amount">You earned 10XP!</p>
       </div>
     </div>
   </div>
