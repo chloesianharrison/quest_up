@@ -14,12 +14,13 @@
   <%# puts the xp and level into the navbar %>
       <p class="me-2 mb-1" id="levelcounter">Level: <%= @level %></p>
       <p class="ms-2 me-2 mb-1" id="xpcounter">XP: <%= @xp %></p>
+      <p class="ms-2 me-2 mb-1" id="spend">XP to spend: <%= current_user.xp %></p>
 
     </div>
   <div class="container-fluid">
 
     <div class="progress nav-width">
-      <div class="progress-bar bg-warning" role="progressbar" style="width: <%= @xp %>%" aria-valuenow=<%= @xp %> aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar bg-warning" role="progressbar" id="progress-bar" style="width: <%= @xp %>%" aria-valuenow=<%= @xp %> aria-valuemin="0" aria-valuemax="100">
       </div>
 
     </div>

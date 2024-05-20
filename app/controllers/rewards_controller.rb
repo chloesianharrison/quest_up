@@ -3,6 +3,11 @@ class RewardsController < ApplicationController
 
   def index
     @rewards = Reward.where(user_id: current_user[:id])
+    @done = @rewards.where(completed: true)
+    @spend = current_user.xp
+    @done.each do |reward|
+      @spend -= reward.xp
+    end
   end
 
   def new
