@@ -36,9 +36,12 @@ class RewardsController < ApplicationController
   end
 
   def update
+
     @reward = Reward.find(params[:id])
     @reward.completed = !@reward.completed
     @reward.save
+    @user = @reward.user
+    @reward.update(reward_params)
     respond_to do |format|
       format.html { redirect_to rewards_path }
       format.json

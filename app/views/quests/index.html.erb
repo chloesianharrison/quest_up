@@ -42,6 +42,7 @@
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside text-start" data-checkboxes-target="bg">
           <p class="card-title"><%= quest.name %></p>
+          <p><%= quest.xp %>XP</p>
         </div>
         <div>
           <div class="custom-checkbox tick <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
@@ -53,8 +54,7 @@
           <%= quest.notes %>
         </p>
           <br>
-          <div class="d-flex">
-            <p class="xp-reward flex-grow-1 text-start"><%= quest.xp %>XP</p>
+          <div class="d-flex btn-position">
             <%= link_to "edit", edit_quest_path(quest), class:"btn btn-quest btn-card" %>
             <%= link_to "delete", quest_path(quest), class:"btn btn-quest btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>
