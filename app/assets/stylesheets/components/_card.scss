@@ -62,7 +62,14 @@
   position: relative;
 }
 
-.btn-position{
+.detail-position{
+  display:flex;
+  justify-content: space-between;
+  padding-left: 3px;
+}
+
+.rewardbtn-position{
   display:flex;
   justify-content: flex-end;
+  margin-bottom: 8px;
 }
