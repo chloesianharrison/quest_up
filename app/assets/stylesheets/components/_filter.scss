@@ -11,7 +11,7 @@
   background-color: $dark-green!important;
   color: $white!important;
   border-color: $dark-green!important;
-  }
+}
 
 .filter {
   width: 15%;
@@ -31,5 +31,10 @@
 .filter-btn {
   background-color: $sage;
   color: $white;
-  justify-content: end;
+  margin-left: 48px;
+}
+
+.filter-input:checked {
+  border-color: $sage;
+  background-color: $sage;
 }

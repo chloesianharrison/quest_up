@@ -1,5 +1,5 @@
 
-<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes" data-action="click->checkboxes#closeModal" data-checkboxes-token-value="<%= form_authenticity_token %>">
+<div class="container text-center mt-3 mb-3 margin-bottom div-relative" data-controller="checkboxes filter" data-action="click->checkboxes#closeModal" data-checkboxes-token-value="<%= form_authenticity_token %>">
 <div id="modal-backdrop" data-checkboxes-target="modalDiv">
 
 <h1 class="mb-3">Quests</h1>
@@ -7,27 +7,27 @@
     <button class="btn dropdown-toggle material-symbols-outlined filter-icon" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
       Sort
     </button>
-    <div class="dropdown-menu p-4 filter-menu mt-3" aria-labelledby="dropdownMenuButton">
+    <div class="dropdown-menu p-4 filter-menu mt-3" aria-labelledby="dropdownMenuButton" >
       <form method="get" action="/quests">
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="completed" name="sortOption" value="completed" data-filter-target="completed">
+          <input class="form-check-input filter-input" type="radio" id="completed" name="sortOption" value="completed" data-filter-target="completed">
           <label class="form-check-label" for="completed">Completed</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="easyQuest" name="sortOption" value="easyQuest" data-filter-target="xp">
+          <input class="form-check-input filter-input" type="radio" id="easyQuest" name="sortOption" value="easyQuest" data-filter-target="xp">
           <label class="form-check-label" for="easyQuest">Easy Quests</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="middleQuest" name="sortOption" value="middleQuest" data-filter-target="xp">
-          <label class="form-check-label" for="middleQuest">Mid Quests</label>
+          <input class="form-check-input filter-input" type="radio" id="midQuest" name="sortOption" value="midQuest" data-filter-target="xp">
+          <label class="form-check-label" for="midQuest">Mid Quests</label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" id="hardQuest" name="sortOption" value="hardQuest" data-filter-target="xp">
+          <input class="form-check-input filter-input" type="radio" id="hardQuest" name="sortOption" value="hardQuest" data-filter-target="xp">
           <label class="form-check-label" for="hardQuest">Hard Quests</label>
         </div>
         <div class="form-group mt-2">
           <label for="byDueDate">Due date :</label>
-          <input type="date" class="form-control" id="byDueDate" name="sortOption">
+          <input class="form-control" type="date" id="byDueDate" name="dateOption" data-filter-target="dueDate">
         </div>
         <div class="form-group mt-3">
           <a href="/quests" class="link filter-link">Clear</a>
@@ -36,7 +36,7 @@
       </form>
     </div>
   </div>
-<%# give form method of get to stay on same page and keep result %>
+
   <% @quests.each do |quest| %>
     <details class="card card-list-outside-quest">
       <summary class="d-flex justify-content-between">

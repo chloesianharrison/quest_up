@@ -1,15 +1,21 @@
 class QuestsController < ApplicationController
+  
   def index
     @quests = Quest.where(user_id: current_user[:id])
     case params['sortOption']
     when 'easyQuest'
       @quests = @quests.select { |quest| quest.xp < 40 }
-    when 'middleQuest'
+    when 'midQuest'
       @quests = @quests.select { |quest| quest.xp < 70 }
     when 'hardQuest'
       @quests = @quests.select { |quest| quest.xp > 70 }
     when 'completed'
       @quests = @quests.select { |quest| quest.completed }
+    end
+
+    if params['dateOption']
+      selected_date = Date.parse(params['dateOption'])
+      @quests = @quests.select { |quest| quest.due_date == selected_date }
     end
   end
 
