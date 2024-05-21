@@ -27,6 +27,7 @@ class QuestsController < ApplicationController
     @quest.completed = !@quest.completed
     @user = @quest.user
     @quest.save
+    @quest.update(quest_params)
     respond_to do |format|
       @user.xp += @quest.xp if @quest.completed == true
       @user.xp -= @quest.xp if @quest.completed == false
