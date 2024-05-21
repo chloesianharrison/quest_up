@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["modal", "modalDiv"]
+  static targets = ["modal", "modalDiv", "amount", "bg"]
   static values = {
     token: String
   }
@@ -40,7 +40,9 @@ export default class extends Controller {
       xp.innerText = `XP: ${newXp}`
       progress.style.width = `${newXp}%`
       this.toSpend(newXp, newLevel)
-      this.openModal()
+      if (data.quest_xp > 0){
+        this.openModal(data.quest_xp)
+      }
       // this.closeModal()
       // setTimeout(this.closeModal, 3000)
     })
@@ -58,6 +60,9 @@ export default class extends Controller {
          "X-CSRF-Token": this.tokenValue
       },
       body: JSON.stringify({completed: true})
+    }) .then(response => response.json())
+    .then((data) => {
+      console.log(data)
     })
   }
 
@@ -70,13 +75,15 @@ export default class extends Controller {
      }
   }
 
-  openModal(){
+  openModal(quest_xp){
+    this.amountTarget.innerText = `You earned ${quest_xp}XP!`
     this.modalTarget.classList.add("modal-display");
     this.modalTarget.classList.add("show");
     // document.body.innerHTML += '';
     this.modalDivTarget.classList.add("modal-backdrop")
     this.modalDivTarget.classList.add("fade")
     this.modalDivTarget.classList.add("show")
+    this.bgTarget.classList.add("modal-backdrop")
   }
 
   closeModal(){
@@ -89,6 +96,7 @@ export default class extends Controller {
     this.modalDivTarget.classList.remove("modal-backdrop")
     this.modalDivTarget.classList.remove("fade")
     this.modalDivTarget.classList.remove("show")
+    this.bgTarget.classList.remove("modal-backdrop")
     // document.getElementsByClassName('modal-backdrop').remove()
     // this.modalTarget.classList.add("d-none")
 
