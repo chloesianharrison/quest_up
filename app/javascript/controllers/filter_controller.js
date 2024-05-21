@@ -18,9 +18,12 @@ export default class extends Controller {
   processFilters() {
     if (this.searchParams['sortOption'] === 'completed') {
       this.completedTarget.checked = true;
-    } else if (this.searchParams['sortOption'] === 'byXP') {
-      this.xpTarget.checked = true;
+    } else if (this.searchParams['sortOption'] === 'easyQuest') {
+      this.easyQuestTarget.checked = true;
+    } else if (this.searchParams['sortOption'] === 'midQuest') {
+      this.midQuestTarget.checked = true;
+    } else if (this.searchParams['sortOption'] === 'hardQuest') {
+      this.hardQuestTarget.checked = true;
     }
   }
-
 }
