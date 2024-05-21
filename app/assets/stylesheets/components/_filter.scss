@@ -1,0 +1,35 @@
+.filter-icon {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: $sage;
+  color: $white;
+  box-shadow: 1px 2px 1px $light-gray
+}
+
+.filter-icon:hover, .filter-btn:hover{
+  background-color: $dark-green!important;
+  color: $white!important;
+  border-color: $dark-green!important;
+  }
+
+.filter {
+  width: 15%;
+  padding-bottom: 15px;
+}
+
+.filter-menu {
+  border-radius: 15px;
+  border-color: $sage;
+}
+
+.filter-link {
+  font-size: 14px;
+  color: $sage;
+}
+
+.filter-btn {
+  background-color: $sage;
+  color: $white;
+  justify-content: end;
+}
