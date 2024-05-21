@@ -17,12 +17,16 @@
 }
 
 .card-list-inside {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
   border-radius: 10px;
   width: 90%;
   margin-bottom: 10px;
   background-color: $white;
   font-size: 18px;
   padding: 10px;
+
 }
 
 .card-list-info {
@@ -47,4 +51,9 @@
 
 .div-relative{
   position: relative;
+}
+
+.btn-position{
+  display:flex;
+  justify-content: flex-end;
 }

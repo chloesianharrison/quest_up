@@ -34,16 +34,15 @@ class QuestsController < ApplicationController
 
   def update
     @quest = Quest.find(params[:id])
-    @quest.completed = !@quest.completed
     @user = @quest.user
-    @quest.save
-    @quest.update(quest_params)
-    respond_to do |format|
-      @user.xp += @quest.xp if @quest.completed == true
-      @user.xp -= @quest.xp if @quest.completed == false
-      @user.save
-      format.html {redirect_to quests_path}
-      format.json
+    if @quest.update(quest_params)
+      respond_to do |format|
+        @user.xp += @quest.xp if @quest.completed == true
+        @user.xp -= @quest.xp if @quest.completed == false
+        @user.save
+        format.html { redirect_to quests_path }
+        format.json
+      end
     end
   end
 

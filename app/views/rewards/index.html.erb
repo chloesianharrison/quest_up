@@ -7,6 +7,7 @@
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside">
           <p class="card-title text-start"><%= reward.name %></p>
+          <p><%= reward.xp %>XP</p>
         </div>
        <div>
           <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
@@ -19,8 +20,7 @@
           <%= reward.details %>
         </p>
           <br>
-          <div class="d-flex">
-            <p class="xp-reward flex-grow-1 text-start"><%= reward.xp %>XP</p>
+          <div class="d-flex btn-position">
             <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
             <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
           </div>

@@ -14,14 +14,15 @@ export default class extends Controller {
     fetch(`/quests/${questId}`, {
       method: "PATCH",
       headers: {
-         "Accept": "application/json",
-         "X-CSRF-Token": this.tokenValue
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "X-CSRF-Token": this.tokenValue
       },
-      body: JSON.stringify({completed: true})
+      body: JSON.stringify({quest: {completed: true}})
     })
   .then(response => response.json())
   .then((data) => {
-      // get xp values
+      //get xp values
       const xp = document.getElementById('xpcounter')
       let newXp = parseInt(xp.innerText.split(' ')[1]) + data.quest_xp
       // get level values
@@ -44,7 +45,7 @@ export default class extends Controller {
         this.openModal(data.quest_xp)
       }
       // this.closeModal()
-      // setTimeout(this.closeModal, 3000)
+      setTimeout(this.closeModal, 3000)
     })
   }
 
@@ -59,7 +60,7 @@ export default class extends Controller {
          "Accept": "application/json",
          "X-CSRF-Token": this.tokenValue
       },
-      body: JSON.stringify({completed: true})
+      body: JSON.stringify({reward: {completed: true}})
     }) .then(response => response.json())
     .then((data) => {
       console.log(data)
