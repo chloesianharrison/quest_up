@@ -68,6 +68,9 @@
         <h1>Congratulations!</h1>
         <h1>You did it!</h1>
         <p data-checkboxes-target="amount">You earned 10XP!</p>
+        <% if @earned  %>
+          <p>You have rewards to collect!</p>
+        <% end %>
       </div>
     </div>
   </div>

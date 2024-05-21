@@ -11,6 +11,9 @@ class QuestsController < ApplicationController
     when 'completed'
       @quests = @quests.select { |quest| quest.completed }
     end
+
+    @rewards = Reward.where(user_id: current_user[:id])
+    @earned = @rewards.where(earned: true)
   end
 
   def new

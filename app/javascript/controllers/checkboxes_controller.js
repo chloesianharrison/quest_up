@@ -62,7 +62,31 @@ export default class extends Controller {
       body: JSON.stringify({completed: true})
     }) .then(response => response.json())
     .then((data) => {
-      console.log(data)
+      // get xp values
+      const xp = document.getElementById('xpcounter')
+      console.log(xp)
+      let newXp = parseInt(xp.innerText.split(' ')[1]) - data.reward_xp
+      console.log(newXp)
+      const level = document.getElementById('levelcounter')
+      let newLevel = parseInt(level.innerText.split(' ')[1])
+      // get progress bar
+      const progress = document.getElementById('progress-bar')
+      if (newLevel < 0){
+        newXP = 0
+        newLevel = 1
+      }else {
+        if (newXp < 0){
+          newLevel = newLevel -1
+          newXp = 100 + newXp
+        } else if (newXp >= 100){
+          newLevel = newLevel +1
+          newXp = newXp - 100
+        }
+      }
+      level.innerText = `Level: ${newLevel}`
+      xp.innerText = `XP: ${newXp}`
+      progress.style.width = `${newXp}%`
+      this.spending(newXp, newLevel)
     })
   }
 
@@ -74,6 +98,22 @@ export default class extends Controller {
       spend.innerText = `XP to spend: ${newXp}`
      }
   }
+
+  spending(newXp, newLevel){
+    const spend = document.getElementById('spend')
+    if (newLevel > 0){
+      spend.innerText = `XP to spend: ${newLevel}${newXp}`
+     } else {
+      spend.innerText = `XP to spend: ${newXp}`
+     }
+
+    const spending = document.getElementById('spending')
+    if (newLevel = 0){
+      spending.innerText = `XP to spend: ${newXp}`
+    } else{
+      spending.innerText = `XP to spend: ${newLevel}${newXp}`
+    }
+   }
 
   openModal(quest_xp){
     this.amountTarget.innerText = `You earned ${quest_xp}XP!`
