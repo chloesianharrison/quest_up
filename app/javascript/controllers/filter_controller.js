@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["completed", "xp"]
+  static targets = ["completed", "xp", "dueDate"]
 
   connect() {
     const url = window.location.href;
@@ -24,6 +24,8 @@ export default class extends Controller {
       this.midQuestTarget.checked = true;
     } else if (this.searchParams['sortOption'] === 'hardQuest') {
       this.hardQuestTarget.checked = true;
+    } else if (this.searchParams['dateOption'] === 'dueDate') {
+      this.dueDateTarget.checked = true;
     }
   }
 }
