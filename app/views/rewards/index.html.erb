@@ -1,6 +1,6 @@
 <div class="container text-center mt-3 mb-3 margin-bottom" data-controller='checkboxes' data-checkboxes-token-value="<%= form_authenticity_token %>">
   <h1 class="mb-3">Rewards</h1>
-  <p>XP to spend: <%= @spend %></p>
+  <p id="spending">XP to spend: <%= @spend %></p>
 
   <% @rewards.each do |reward| %>
     <details class="card card-list-outside-reward">
@@ -8,11 +8,13 @@
         <div class="card card-list-inside">
           <p class="card-title text-start"><%= reward.name %></p>
         </div>
+        <% if reward.earned  == true%>
        <div>
           <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
             <i class="fa-solid fa-check"></i>
           </div>
         </div>
+        <% end %>
       </summary>
       <div class="card card-list-info">
         <p class="card-details text-start">
