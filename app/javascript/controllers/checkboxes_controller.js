@@ -55,15 +55,15 @@ export default class extends Controller {
     event.currentTarget.classList.toggle('checked');
     const body = {reward: {}};
     event.currentTarget.classList.contains("checked") ? body.reward = {completed: true} : body.reward = {completed: false}
-
     const rewardId = event.currentTarget.dataset.id;
     fetch(`/rewards/${rewardId}`, {
       method: "PATCH",
       headers: {
+        "Content-Type": "application/json",
          "Accept": "application/json",
          "X-CSRF-Token": this.tokenValue
       },
-      body: JSON.stringify({reward: {completed: true}})
+      body: JSON.stringify(body)
     }) .then(response => response.json())
     .then((data) => {
       // get xp values
