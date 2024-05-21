@@ -8,6 +8,13 @@ class RewardsController < ApplicationController
     @done.each do |reward|
       @spend -= reward.xp if reward.xp.positive?
     end
+    @rewards.each do |earned|
+      if earned.xp <= @spend
+        earned.earned = true
+      else
+        earned.earned = false
+      end
+    end
   end
 
   def new
@@ -33,7 +40,7 @@ class RewardsController < ApplicationController
     @reward.completed = !@reward.completed
     @reward.save
     respond_to do |format|
-      format.html {redirect_to rewards_path}
+      format.html { redirect_to rewards_path }
       format.json
     end
   end
@@ -47,6 +54,6 @@ class RewardsController < ApplicationController
   private
 
   def reward_params
-    params.require(:reward).permit(:name, :xp, :details, :completed)
+    params.require(:reward).permit(:name, :xp, :details, :completed, :earned)
   end
 end

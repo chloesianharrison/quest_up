@@ -17,6 +17,9 @@ class QuestsController < ApplicationController
       selected_date = Date.parse(params['dateOption'])
       @quests = @quests.select { |quest| quest.due_date == selected_date }
     end
+
+    @rewards = Reward.where(user_id: current_user[:id])
+    @earned = @rewards.where(earned: true)
   end
 
   def new
