@@ -1,4 +1,4 @@
-<div class="bodygame" data-controller="bubble">
+<div class="bodygame" data-controller="bubble" data-bubble-token-value="<%= form_authenticity_token %>" data-bubble-userid-value="<%= current_user.id %>">
 
 
   <%= link_to "skip", quests_path, class: "btn", id: "skipbutton-position", class: "skipbutton"%>
