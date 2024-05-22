@@ -9,7 +9,8 @@ export default class extends Controller {
   completeQuest(event) {
     event.preventDefault();
     event.currentTarget.classList.toggle('checked');
-
+    const body = {quest: {}};
+    event.currentTarget.classList.contains("checked") ? body.quest = {completed: true} : body.quest = {completed: false}
     const questId = event.currentTarget.dataset.id;
     fetch(`/quests/${questId}`, {
       method: "PATCH",
@@ -18,8 +19,9 @@ export default class extends Controller {
         "Accept": "application/json",
         "X-CSRF-Token": this.tokenValue
       },
-      body: JSON.stringify({quest: {completed: true}})
+      body: JSON.stringify(body)
     })
+
   .then(response => response.json())
   .then((data) => {
       //get xp values
@@ -52,15 +54,19 @@ export default class extends Controller {
   completeReward(event) {
     event.preventDefault();
     event.currentTarget.classList.toggle('checked');
-
+    const body = {reward: {}};
+    event.currentTarget.classList.contains("checked") ? body.reward = {completed: true} : body.reward = {completed: false}
     const rewardId = event.currentTarget.dataset.id;
     fetch(`/rewards/${rewardId}`, {
       method: "PATCH",
       headers: {
+        "Content-Type": "application/json",
          "Accept": "application/json",
          "X-CSRF-Token": this.tokenValue
       },
-      body: JSON.stringify({reward: {completed: true}})
+      body: JSON.stringify(body)
+
+
     }) .then(response => response.json())
     .then((data) => {
       // get xp values

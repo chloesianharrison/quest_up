@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="filter"
 export default class extends Controller {
-  static targets = ["completed", "xp", "dueDate"]
+  static targets = ["completed", "easyQuest", "midQuest", "hardQuest", "dueDate", "earned", "claimed"]
 
   connect() {
     const url = window.location.href;
@@ -18,6 +18,10 @@ export default class extends Controller {
   processFilters() {
     if (this.searchParams['sortOption'] === 'completed') {
       this.completedTarget.checked = true;
+    } else if (this.searchParams['sortOption'] === 'claimed') {
+      this.claimedTarget.checked = true;
+    } else if (this.searchParams['sortOption'] === 'earned') {
+      this.earnedTarget.checked = true;
     } else if (this.searchParams['sortOption'] === 'easyQuest') {
       this.easyQuestTarget.checked = true;
     } else if (this.searchParams['sortOption'] === 'midQuest') {

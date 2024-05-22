@@ -4,6 +4,14 @@ class RewardsController < ApplicationController
   def index
     @rewards = Reward.where(user_id: current_user[:id])
     @done = @rewards.where(completed: true)
+
+    case params['sortOption']
+    when 'claimed'
+      @rewards = @rewards.select { |reward| reward.completed }
+    when 'earned'
+      @rewards = @rewards.select { |reward| reward.xp <= current_user.xp }
+    end
+
     @spend = current_user.xp
     @done.each do |reward|
       @spend -= reward.xp if reward.xp.positive?
