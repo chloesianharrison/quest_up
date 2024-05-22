@@ -1,6 +1,7 @@
 <div class="container text-center mt-3 mb-3 margin-bottom" data-controller='checkboxes filter' data-checkboxes-token-value="<%= form_authenticity_token %>">
   <h1 class="mb-3">Rewards</h1>
   <p id="spending">XP to spend: <%= @spend %></p>
+  <p><%= current_user.xp %></p>
 
 <div class="dropdown filter">
   <button class="btn dropdown-toggle material-symbols-outlined filter-icon-reward" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
@@ -44,11 +45,11 @@
         <p class="card-details text-start">
           <%= reward.details %>
         </p>
-          <br>
-          <div class="d-flex btn-position">
+        <br>
+        <div class="d-flex rewardbtn-position">          <div>
             <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
             <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-          </div>
+        </div>
       </div>
     </details>
   <% end %>

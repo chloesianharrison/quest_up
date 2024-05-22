@@ -27,7 +27,7 @@ export default class extends Controller {
           popBubble(e, bubble);
           xpCount += 1;
           pop.play()
-          counter.innerText = `xp: ${xpCount}`;
+          counter.innerText = `xp: ${xpCount}/10`;
           if (xpCount === 10) {
             window.location.href = "/quests";
           }
