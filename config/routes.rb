@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-
+  resources :users, only: :update
   resources :rewards, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :quests, only: [:index, :new, :create, :edit, :update, :destroy]
   get "bubble", to: "pages#bubble"
