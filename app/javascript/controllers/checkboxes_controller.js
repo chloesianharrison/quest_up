@@ -21,6 +21,7 @@ export default class extends Controller {
       },
       body: JSON.stringify(body)
     })
+
   .then(response => response.json())
   .then((data) => {
       //get xp values
