@@ -13,6 +13,21 @@
   border-color: $dark-green!important;
 }
 
+.filter-icon-reward {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: $orange;
+  color: $white;
+  box-shadow: 1px 2px 1px $light-gray
+}
+
+.filter-icon-reward:hover, .filter-btn-reward:hover{
+  background-color: $dark-orange!important;
+  color: $white!important;
+  border-color: $dark-orange!important;
+}
+
 .filter {
   width: 15%;
   padding-bottom: 15px;
@@ -23,18 +38,42 @@
   border-color: $sage;
 }
 
+.filter-menu-reward {
+  border-radius: 15px;
+  border-color: $orange;
+  width: 182px;
+}
+
 .filter-link {
   font-size: 14px;
   color: $sage;
 }
 
+.filter-link-reward {
+  font-size: 14px;
+  color: $orange;
+}
+
 .filter-btn {
   background-color: $sage;
   color: $white;
-  margin-left: 48px;
+  margin-left: 62px;
+  height: 34px;
+}
+
+.filter-btn-reward {
+  background-color: $orange;
+  color: $white;
+  margin-left: 28px;
+  height: 34px;
 }
 
 .filter-input:checked {
   border-color: $sage;
   background-color: $sage;
+}
+
+.filter-input-reward:checked {
+  border-color: $orange;
+  background-color: $orange;
 }

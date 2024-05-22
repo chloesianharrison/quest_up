@@ -2,19 +2,25 @@
   <div class="d-flex nav-xp-level justify-content-center">
 
   <%# converts the xp to a level and a 2 digit xp rating %>
-        <% if current_user.xp < 100 %>
+        <% if current_user.xp < 0 %>
+          <% @level = 0 %>
+          <% @xp = 0 %>
+          <% @spend = 0 %>
+        <% elsif current_user.xp < 100 %>
           <% @level = 0 %>
           <% @xp = current_user.xp %>
+          <% @spend = current_user.xp %>
         <% elsif %>
           <% @levels = current_user.xp.to_s.chars %>
           <% @level = @levels[0] %>
           <% @xp = @levels[1] + @levels[2] %>
+          <% @spend = current_user.xp %>
         <% end %>
 
   <%# puts the xp and level into the navbar %>
       <p class="me-2 mb-1" id="levelcounter">Level: <%= @level %></p>
       <p class="ms-2 me-2 mb-1" id="xpcounter">XP: <%= @xp %></p>
-      <p class="ms-2 me-2 mb-1" id="spend">XP to spend: <%= current_user.xp %></p>
+      <p class="ms-2 me-2 mb-1" id="spend">XP to spend: <%= @spend %></p>
 
     </div>
   <div class="container-fluid">

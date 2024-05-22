@@ -51,6 +51,7 @@ export default class extends Controller {
           pop.play()
           counter.innerText = `xp: ${xpCount}`;
           updateXp(this.useridValue, 1)
+
           if (xpCount === 10) {
             window.location.href = "/quests";
           }
