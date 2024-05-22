@@ -69,8 +69,14 @@ export default class extends Controller {
       // get xp values
       const xp = document.getElementById('xpcounter')
       console.log(xp)
-      let newXp = parseInt(xp.innerText.split(' ')[1]) - data.reward_xp
+      let newXp = parseInt(xp.innerText.split(' ')[1])
       console.log(newXp)
+      const spend = document.getElementById('spend')
+      let newSpend = parseInt(xp.innerText.split(' ')[1])
+      console.log(newSpend)
+      newSpend = newSpend - data.reward_xp
+      console.log(newSpend)
+      // console.log(newXp)
       const level = document.getElementById('levelcounter')
       let newLevel = parseInt(level.innerText.split(' ')[1])
       // get progress bar
@@ -79,43 +85,48 @@ export default class extends Controller {
         newXP = 0
         newLevel = 1
       }else {
-        if (newXp < 0){
-          newLevel = newLevel -1
-          newXp = 100 + newXp
+        if (newXp > 199){
+          let bigXp = newXp.to_s.chars
+          console.log(bigXp)
+          newLevel = parseInt(bigXp[0])
+          newXp = parseInt(bigXp[1] + bigXp[2])
         } else if (newXp >= 100){
           newLevel = newLevel +1
           newXp = newXp - 100
+        } else if (newXp < 0){
+          newLevel = newLevel -1
+          newXp = 100 + newXp
         }
       }
       level.innerText = `Level: ${newLevel}`
       xp.innerText = `XP: ${newXp}`
       progress.style.width = `${newXp}%`
-      this.spending(newXp, newLevel)
+      this.spending(newXp, newLevel, newSpend, spend)
     })
   }
 
   toSpend(newXp, newLevel){
     const spend = document.getElementById('spend')
     if (newLevel > 0){
+      console.log(newLevel, newXp)
       spend.innerText = `XP to spend: ${newLevel}${newXp}`
      } else {
       spend.innerText = `XP to spend: ${newXp}`
      }
   }
 
-  spending(newXp, newLevel){
-    const spend = document.getElementById('spend')
+  spending(newXp, newLevel, newSpend, spend){
     if (newLevel > 0){
-      spend.innerText = `XP to spend: ${newLevel}${newXp}`
+      spend.innerText = `XP to spend: ${newSpend}`
      } else {
-      spend.innerText = `XP to spend: ${newXp}`
+      spend.innerText = `XP to spend: ${newSpend}`
      }
 
     const spending = document.getElementById('spending')
     if (newLevel = 0){
-      spending.innerText = `XP to spend: ${newXp}`
+      spending.innerText = `XP to spend: ${newSpend}`
     } else{
-      spending.innerText = `XP to spend: ${newLevel}${newXp}`
+      spending.innerText = `XP to spend: ${newSpend}`
     }
    }
 
