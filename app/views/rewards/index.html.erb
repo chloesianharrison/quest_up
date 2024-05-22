@@ -1,6 +1,7 @@
 <div class="container text-center mt-3 mb-3 margin-bottom" data-controller='checkboxes' data-checkboxes-token-value="<%= form_authenticity_token %>">
   <h1 class="mb-3">Rewards</h1>
   <p id="spending">XP to spend: <%= @spend %></p>
+  <p><%= current_user.xp %></p>
 
   <% @rewards.each do |reward| %>
     <details class="card card-list-outside-reward">

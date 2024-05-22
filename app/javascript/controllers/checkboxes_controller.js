@@ -24,11 +24,16 @@ export default class extends Controller {
   .then(response => response.json())
   .then((data) => {
       //get xp values
+      // console.log(data.user)
+      // console.log(data.quest_xp);
       const xp = document.getElementById('xpcounter')
       let newXp = parseInt(xp.innerText.split(' ')[1]) + data.quest_xp
+
+      // console.log(newXp)
       // get level values
       const level = document.getElementById('levelcounter')
       let newLevel = parseInt(level.innerText.split(' ')[1])
+      // console.log(newLevel)
       // get progress bar
       const progress = document.getElementById('progress-bar')
       if (newXp < 0){
@@ -38,8 +43,11 @@ export default class extends Controller {
         newLevel = newLevel +1
         newXp = newXp - 100
       }
-      level.innerText = `Level: ${newLevel}`
+    level.innerText = `Level: ${newLevel}`
+      // console.log(newLevel)
       xp.innerText = `XP: ${newXp}`
+      // console.log(newXp)
+      // console.log(newXp)
       progress.style.width = `${newXp}%`
       this.toSpend(newXp, newLevel)
       if (data.quest_xp > 0){
@@ -67,37 +75,35 @@ export default class extends Controller {
     }) .then(response => response.json())
     .then((data) => {
       // get xp values
+      // console.log(data)
       const xp = document.getElementById('xpcounter')
-      console.log(xp)
       let newXp = parseInt(xp.innerText.split(' ')[1])
       console.log(newXp)
-      const spend = document.getElementById('spend')
-      let newSpend = parseInt(xp.innerText.split(' ')[1])
+      const spend = document.getElementById('spending')
+      // console.log(spend)
+      const xpToSpend = document.getElementById('spend')
+      console.log(xpToSpend);
+      let newSpend = parseInt(xpToSpend.innerText.split(' ')[3])
       console.log(newSpend)
+
       newSpend = newSpend - data.reward_xp
-      console.log(newSpend)
-      // console.log(newXp)
+      // console.log(newSpend)
+      console.log(newXp)
       const level = document.getElementById('levelcounter')
       let newLevel = parseInt(level.innerText.split(' ')[1])
       // get progress bar
       const progress = document.getElementById('progress-bar')
-      if (newLevel < 0){
-        newXP = 0
-        newLevel = 1
-      }else {
-        if (newXp > 199){
+        if (newXp > 99){
+          // console.log("newXP greater than 199")
           let bigXp = newXp.to_s.chars
-          console.log(bigXp)
+          // console.log(bigXp)
           newLevel = parseInt(bigXp[0])
           newXp = parseInt(bigXp[1] + bigXp[2])
         } else if (newXp >= 100){
+          // console.log("newXP greater than 100")
           newLevel = newLevel +1
           newXp = newXp - 100
-        } else if (newXp < 0){
-          newLevel = newLevel -1
-          newXp = 100 + newXp
         }
-      }
       level.innerText = `Level: ${newLevel}`
       xp.innerText = `XP: ${newXp}`
       progress.style.width = `${newXp}%`
@@ -108,26 +114,32 @@ export default class extends Controller {
   toSpend(newXp, newLevel){
     const spend = document.getElementById('spend')
     if (newLevel > 0){
-      console.log(newLevel, newXp)
-      spend.innerText = `XP to spend: ${newLevel}${newXp}`
-     } else {
+        // console.log(`XP greater than 0 ${newLevel}${newXp}`)
+        spend.innerText = `XP to spend: ${newLevel}${newXp}`
+    } else {
       spend.innerText = `XP to spend: ${newXp}`
-     }
+      // console.log(newXp)
+    }
   }
 
-  spending(newXp, newLevel, newSpend, spend){
-    if (newLevel > 0){
-      spend.innerText = `XP to spend: ${newSpend}`
-     } else {
-      spend.innerText = `XP to spend: ${newSpend}`
-     }
 
-    const spending = document.getElementById('spending')
-    if (newLevel = 0){
-      spending.innerText = `XP to spend: ${newSpend}`
-    } else{
-      spending.innerText = `XP to spend: ${newSpend}`
-    }
+  spending(newXp, newLevel, newSpend, spending){
+    const spend = document.getElementById('spend')
+    // if (newLevel > 0){
+    //   spend.innerText = `XP to spend: ${newSpend}`
+    //  } else {
+    spend.innerText = `XP to spend: ${newSpend}`
+    // console.log(spend)
+    //  }
+
+    // const spending = document.getElementById('spending')
+    // console.log(spending)
+    // if (newLevel = 0){
+    //   spending.innerText = `XP to spend: ${newSpend}`
+    // } else{
+    spending.innerText = `XP to spend: ${newSpend}`
+    // console.log(spending)
+    // }
    }
 
   openModal(quest_xp){
