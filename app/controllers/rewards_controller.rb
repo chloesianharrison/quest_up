@@ -4,7 +4,11 @@ class RewardsController < ApplicationController
   def index
     @rewards = Reward.where(user_id: current_user[:id])
     @done = @rewards.where(completed: true)
-    @spend = current_user.xp
+    if current_user.xp.negative?
+      @spend = 0
+    else
+      @spend = current_user.xp
+    end
     @done.each do |reward|
       @spend -= reward.xp if reward.xp.positive?
     end
