@@ -30,7 +30,6 @@ class RewardsController < ApplicationController
         earned.earned = false
       end
     end
-
   end
 
   def new
