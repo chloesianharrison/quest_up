@@ -70,3 +70,37 @@
   margin-bottom: 15px;
   vertical-align: middle;
 }
+
+.navbar-nav .dropdown-menu div {
+  inset: auto 200px 0px auto!important;
+}
+
+.present{
+  position: absolute;
+  inset: auto 200px 30px auto!important;
+  margin: 0px;
+  transform: translate3d(-15.5px, -51px, 0px)!important;
+  // background-color: $body-bg;
+  background-color: $light-orange;
+  border: 1px solid $orange;
+  border-radius: 25px;
+  padding: 15%;
+  box-shadow: 1px 2px 1px $light-gray
+}
+
+.added{
+  position: absolute;
+  inset: auto -45px 30px auto!important;
+  margin: 0px;
+  transform: translate3d(-15.5px, -51px, 0px)!important;
+  // background-color: $body-bg;
+  background-color: $light-orange;
+  border: 1px solid $orange;
+  border-radius: 25px;
+  padding: 20%;
+  box-shadow: 1px 2px 1px $light-gray
+}
+
+.footer-btn-icon > a:focus{
+  color: $orange!important;
+}

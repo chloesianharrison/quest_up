@@ -8,7 +8,7 @@
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i class="fa-solid fa-plus footer-icon"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-end footer-menu menu-add" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-end footer-menu menu-add added" aria-labelledby="navbarDropdown">
             <a class="dropdown-item footer-menu-item" href="/quests/new">Add a new quest  <i class="fa-solid fa-list-check"></i></a>
             <a class="dropdown-item footer-menu-item" href="/rewards/new">Add a new reward  <i class="fa-solid fa-trophy"></i></a>
           </div>
@@ -19,16 +19,16 @@
       </li>
       <li class="nav-item dropdown">
         <div class="btn-group footer-btn-icon">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuOffset" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-offset="-100vw, -100vw">
             <i class="fa-solid fa-house-user footer-icon"></i>
           </a>
         <% if params[:controller] == "devise/sessions" && params[:action] == "new" %>
-          <div class="dropdown-menu dropdown-menu-end footer-menu menu-home" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-end footer-menu menu-home" aria-labelledby="dropdownMenuOffset">
             <a class="dropdown-item footer-menu-item" href="#">Help <i class="fa-solid fa-circle-question"></i></a>
             <a class="dropdown-item footer-menu-item" href="#">Contact us <i class="fa-solid fa-envelope"></i></a>
           </div>
         <% else %>
-          <div class="dropdown-menu dropdown-menu-end footer-menu menu-home" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu dropdown-menu-end footer-menu menu-home present" aria-labelledby="dropdownMenuOffset" id="dropdownMenuOffset">
             <a class="dropdown-item footer-menu-item" href="#">Help <i class="fa-solid fa-circle-question"></i></a>
             <a class="dropdown-item footer-menu-item" href="#">Contact us <i class="fa-solid fa-envelope"></i></a>
             <a class="dropdown-item footer-menu-item" href="../users/sign_out" data-turbo-method="delete">Log out <i class="fa-solid fa-right-from-bracket"></i></a>
@@ -38,3 +38,4 @@
       </li>
     </ul>
   </nav>
+<%#  %>
