@@ -40,9 +40,18 @@
   <% @quests.each do |quest| %>
     <details class="card card-list-outside-quest">
       <summary class="d-flex justify-content-between">
-        <div class="card card-list-inside text-start" data-checkboxes-target="bg">
-          <p class="card-title"><%= quest.name %></p>
+        <div class="card card-list-inside text-start flex-column " data-checkboxes-target="bg">
+          <div class="d-flex justify-content-between">
+          <p class="card-title small-height"><strong><%= quest.name %></strong></p>
           <p><%= quest.xp %>XP</p>
+          </div>
+          <% if quest.xp < 40 %>
+            <p class="sword">⚔</p>
+          <% elsif quest.xp < 70 %>
+            <p class="sword">⚔⚔</p>
+          <% else %>
+            <p class="sword">⚔⚔⚔</p>
+          <% end %>
         </div>
         <div>
           <div class="custom-checkbox tick <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">
