@@ -12,7 +12,7 @@
   <%= f.input :xp, input_html: {class: "input-bg"}, label: "XP required:" %>
   <%= f.input :details, input_html: {class: "input-bg"}, label: "Details" %>
   <div class="form-button-container">
-    <%= f.submit "Create", class: "btn-rewards"%>
+    <%= f.submit reward.id ? "Update Reward" : "Add Reward", class: "btn-rewards"%>
   </div>
 <% end %>
 </div>
