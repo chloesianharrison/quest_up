@@ -42,7 +42,8 @@
       <summary class="d-flex justify-content-between">
         <div class="card card-list-inside text-start flex-column " data-checkboxes-target="bg">
           <div class="d-flex justify-content-between">
-          <p class="card-title small-height"><%= quest.name %></p>
+         <div class="card-title"><%= quest.name %></div>
+
           <p><%= quest.xp %>XP</p>
           </div>
           <% if quest.xp < 40 %>
@@ -64,7 +65,7 @@
         </p>
         <br/>
         <div class="d-flex detail-position">
-          <p class="detail-position">Due date: <%= quest.due_date %></p>
+          <p class="detail-position">Due date: <%= quest.due_date.to_formatted_s(:long)%></p>
           <div>
             <%= link_to "edit", edit_quest_path(quest), class:"btn btn-quest btn-card" %>
             <%= link_to "delete", quest_path(quest), class:"btn btn-quest btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>

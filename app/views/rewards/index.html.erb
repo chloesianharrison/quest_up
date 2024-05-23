@@ -27,8 +27,10 @@
   <% @rewards.each do |reward| %>
     <details class="card card-list-outside-reward">
       <summary class="d-flex justify-content-between">
-        <div class="card card-list-inside">
-          <p class="card-title text-start small-height"><%= reward.name %></p>
+
+        <div class="card card-list-inside" id="rewardspace">
+          <p class="card-title text-start"><%= reward.name %></p>
+
           <p><%= reward.xp %>XP</p>
         </div>
         <% if reward.earned  == true%>
