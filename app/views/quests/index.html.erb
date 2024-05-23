@@ -43,9 +43,8 @@
         <div class="card card-list-inside text-start flex-column " data-checkboxes-target="bg">
           <div class="d-flex justify-content-between">
          <div class="card-title"><%= quest.name %></div>
-
-          <p><%= quest.xp %>XP</p>
           </div>
+          <div class="d-flex justify-content-between">
           <% if quest.xp < 40 %>
             <p class="sword">⚔</p>
           <% elsif quest.xp < 70 %>
@@ -53,6 +52,8 @@
           <% else %>
             <p class="sword">⚔⚔⚔</p>
           <% end %>
+           <p class="card-xp"><%= quest.xp %>XP</p>
+        </div>
         </div>
         <div>
           <div class="custom-checkbox tick <%= quest.completed ? 'checked' : ''%>" data-id="<%= quest.id %>" data-action="click->checkboxes#completeQuest">

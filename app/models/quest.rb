@@ -1,5 +1,5 @@
 class Quest < ApplicationRecord
   belongs_to :user
 
-  validates :name, presence: true
+  validates :name, :notes, presence: true
 end
