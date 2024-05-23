@@ -68,6 +68,20 @@
   height: 34px;
 }
 
+.filter-input-reward {
+  height: 22px;
+  width: 22px;
+  background-color: $white;
+  border-width: 1.5px;
+}
+
+.filter-input {
+  height: 22px;
+  width: 22px;
+  background-color: $white;
+  border-width: 1.5px;
+}
+
 .filter-input:checked {
   border-color: $sage;
   background-color: $sage;
@@ -76,4 +90,17 @@
 .filter-input-reward:checked {
   border-color: $orange;
   background-color: $orange;
+}
+
+.form-check-filter {
+  margin-bottom: 1.2rem;
+}
+
+.form-check-label-filter {
+  padding-top: 5px;
+  padding-left: 5px;
+}
+
+.filter-date-input {
+  background-color: $white;
 }
