@@ -80,11 +80,12 @@
   inset: auto 200px 30px auto!important;
   margin: 0px;
   transform: translate3d(-15.5px, -51px, 0px)!important;
-  // background-color: $body-bg;
-  background-color: $light-orange;
-  border: 1px solid $orange;
+  background-color: $body-bg;
+  // background-color: $light-orange;
+  border: 2px solid $orange;
   border-radius: 25px;
   padding: 15%;
+  padding-top: 30%;
   box-shadow: 1px 2px 1px $light-gray
 }
 
@@ -93,14 +94,24 @@
   inset: auto -45px 30px auto!important;
   margin: 0px;
   transform: translate3d(-15.5px, -51px, 0px)!important;
-  // background-color: $body-bg;
-  background-color: $light-orange;
+  background-color: $body-bg;
+  // background-color: $light-orange;
   border: 1px solid $orange;
   border-radius: 25px;
   padding: 20%;
+  padding-top: 35%;
   box-shadow: 1px 2px 1px $light-gray
 }
 
-.footer-btn-icon > a:focus{
+.footer-btn-icon > .nav-colour:focus{
   color: $orange!important;
+}
+
+.nav-box-btn{
+  background-color: $orange;
+  color: $white;
+  //margin-left: 62px;
+  height: 34px;
+  border: none;
+  box-shadow: none;
 }
