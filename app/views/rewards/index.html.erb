@@ -13,7 +13,7 @@
         </div>
         <div class="form-check form-check-filter">
           <input class="form-check-input filter-input-reward" type="radio" id="earned" name="sortOption" value="earned" data-filter-target="earned">
-          <label class="form-check-label form-check-label-filter" for="earned"> Earned</label>
+          <label class="form-check-label form-check-label-filter" for="earned"> Unlocked</label>
         </div>
         <div class="form-group mt-3">
           <a href="/rewards" class="link filter-link-reward">Clear</a>
@@ -47,7 +47,7 @@
         </p>
         <br>
         <div class="d-flex rewardbtn-position">          <div>
-            <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
+            <%= link_to "update", edit_reward_path(reward), class:"btn btn-review btn-card" %>
             <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
