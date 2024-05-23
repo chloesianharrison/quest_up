@@ -26,3 +26,20 @@
   background: rgba(40,40,40,0.7);
   padding: 5px;
 }
+
+.padlock{
+  width: 20px;
+  height: 20px;
+  color: $light-gray;
+  margin-top: 14px;
+  margin-right: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i{
+    opacity: 1;
+    // color: white;
+    font-size: 24px;
+  }
+}
