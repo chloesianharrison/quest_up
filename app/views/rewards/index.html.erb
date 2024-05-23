@@ -62,7 +62,7 @@
         </p>
         <br>
         <div class="d-flex rewardbtn-position">          <div>
-            <%= link_to "edit", edit_reward_path(reward), class:"btn btn-review btn-card" %>
+            <%= link_to "update", edit_reward_path(reward), class:"btn btn-review btn-card" %>
             <%= link_to "delete", reward_path(reward), class:"btn btn-review btn-card", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
         </div>
       </div>
