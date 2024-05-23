@@ -115,3 +115,15 @@
   border: none;
   box-shadow: none;
 }
+
+.nav-box-btn:hover{
+  background-color: $dark-orange!important;
+  color: $white!important;
+  border-color: $dark-orange!important;
+}
+
+.nav-box-btn:active{
+  background-color: $dark-orange!important;
+  color: $white!important;
+  border-color: $dark-orange!important;
+}
