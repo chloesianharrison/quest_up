@@ -44,9 +44,11 @@ class QuestsController < ApplicationController
     @user = current_user
     if @quest.update(quest_params)
       respond_to do |format|
-        @user.xp += @quest.xp if @quest.completed == true
-        @user.xp -= @quest.xp if @quest.completed == false
-        @user.save!
+        if params[:quest][:completed]
+          @user.xp += @quest.xp if @quest.completed == true
+          @user.xp -= @quest.xp if @quest.completed == false
+          @user.save!
+        end
         format.html { redirect_to quests_path }
         format.json
       end
