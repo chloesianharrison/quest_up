@@ -48,9 +48,10 @@ class RewardsController < ApplicationController
   end
 
   def update
-
     @reward = Reward.find(params[:id])
-    @reward.completed = !@reward.completed
+    if params[:reward][:completed]
+      @reward.completed = !@reward.completed
+    end
     @reward.save
     @user = @reward.user
     @reward.update(reward_params)
