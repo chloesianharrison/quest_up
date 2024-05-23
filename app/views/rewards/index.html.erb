@@ -25,6 +25,7 @@
 
 
   <% @rewards.each do |reward| %>
+    <% if reward.earned  == true%>
     <details class="card card-list-outside-reward">
       <summary class="d-flex justify-content-between">
 
@@ -33,15 +34,29 @@
 
           <p><%= reward.xp %>XP</p>
         </div>
-        <% if reward.earned  == true%>
-       <div>
-          <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
-            <i class="fa-solid fa-check"></i>
+          <div>
+            <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
+              <i class="fa-solid fa-check"></i>
+            </div>
           </div>
-        </div>
-        <% end %>
       </summary>
-      <div class="card card-list-info">
+      <% else %>
+        <details class="card card-list-outside-unavail">
+          <summary class="d-flex justify-content-between">
+
+          <div class="card card-list-inside card-list-inside-unavail" id="rewardspace">
+          <p class="card-title text-start"><%= reward.name %></p>
+
+          <p><%= reward.xp %>XP</p>
+        </div>
+          <div>
+            <div class="padlock">
+              <i class="fa-sharp fa-solid fa-lock"></i>
+            </div>
+        </div>
+        </summary>
+        <% end %>
+      <div class="card card-list-info card-list-inside-unavail">
         <p class="card-details text-start">
           <%= reward.details %>
         </p>

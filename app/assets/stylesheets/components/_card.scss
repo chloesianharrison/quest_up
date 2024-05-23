@@ -35,7 +35,11 @@
   background-color: $white;
   font-size: 18px;
   padding: 10px;
+}
 
+.card-list-inside-unavail{
+  color: $light-gray;
+  background-color: rgb(232, 232, 232);
 }
 
 .card-list-info {

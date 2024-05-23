@@ -17,9 +17,11 @@ class RewardsController < ApplicationController
     else
       @spend = current_user.xp
     end
+
     @done.each do |reward|
       @spend -= reward.xp if reward.xp.positive?
     end
+
     @rewards.each do |earned|
       if earned.xp <= @spend
         earned.earned = true
