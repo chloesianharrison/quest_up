@@ -15,10 +15,12 @@ class RewardsController < ApplicationController
     @spend = current_user.xp
     if current_user.xp.negative?
       @spend = 0
+    else
+      @spend = current_user.xp
     end
 
     @done.each do |reward|
-      @spend -= reward.xp
+      @spend -= reward.xp if reward.xp.positive?
     end
 
     @rewards.each do |earned|
