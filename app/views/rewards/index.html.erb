@@ -25,7 +25,7 @@
 
 
   <% @rewards.each do |reward| %>
-    <% if reward.earned  == true%>
+    <% if (reward.earned  == true) || (reward.completed == true)%>
     <details class="card card-list-outside-reward">
       <summary class="d-flex justify-content-between">
 
