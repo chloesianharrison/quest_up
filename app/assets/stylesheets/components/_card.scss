@@ -46,6 +46,7 @@
   border-radius: 10px;
   background-color: $white;
   font-size: 16px;
+  height: 100px;
 }
 
 .card-title {
@@ -77,4 +78,11 @@
   display:flex;
   justify-content: flex-end;
   margin-bottom: 8px;
+}
+
+.card-xp {
+  margin-top: 0;
+  color: grey;
+  margin-bottom: -1rem;
+  font-size: 16px;
 }

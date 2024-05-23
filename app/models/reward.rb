@@ -1,5 +1,5 @@
 class Reward < ApplicationRecord
   belongs_to :user
 
-  validates :name, :xp, presence:true
+  validates :name, :xp, :details, presence: true
 end
