@@ -4,6 +4,7 @@ class RewardsController < ApplicationController
   def index
     @rewards = Reward.where(user_id: current_user[:id])
     @done = @rewards.where(completed: true)
+    @rewards = @rewards.order(:xp)
     case params['sortOption']
     when 'claimed'
       @rewards = @rewards.select { |reward| reward.completed }
@@ -14,12 +15,10 @@ class RewardsController < ApplicationController
     @spend = current_user.xp
     if current_user.xp.negative?
       @spend = 0
-    else
-      @spend = current_user.xp
     end
 
     @done.each do |reward|
-      @spend -= reward.xp if reward.xp.positive?
+      @spend -= reward.xp
     end
 
     @rewards.each do |earned|
@@ -29,6 +28,7 @@ class RewardsController < ApplicationController
         earned.earned = false
       end
     end
+
   end
 
   def new
