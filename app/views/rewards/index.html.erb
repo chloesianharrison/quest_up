@@ -34,10 +34,10 @@
 
           <p><%= reward.xp %>XP</p>
         </div>
-          <div>
-            <div class="custom-checkbox <%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
-              <i class="fa-solid fa-check"></i>
-            </div>
+        <% if reward.earned  == true%>
+       <div>
+          <div class="custom-checkbox-reward"<%= reward.completed ? 'checked' : ''%>" data-id="<%= reward.id %>" data-action="click->checkboxes#completeReward">
+            <i class="fa-solid fa-check"></i>
           </div>
       </summary>
       <% else %>
